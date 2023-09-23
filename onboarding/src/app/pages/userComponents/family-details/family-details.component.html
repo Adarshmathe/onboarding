@@ -1,0 +1,105 @@
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Family Details</mat-card-title>
+        
+      </mat-card-header>
+      <!-- <h1 class= "text-decorate"><b>Family Details</b></h1> -->
+
+      <!-- <p>{{exp.value| json}}</p> -->
+
+      <form [formGroup]="family" autocomplete="off"(ngSubmit)="save()">
+        <ng-container formArrayName="extras">
+
+      <mat-table [dataSource]="extras.controls" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput  placeholder="Last name" formControlName="lastname">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="firstname">
+          <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="firstname" formControlName="firstname">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="relation">
+          <mat-header-cell *matHeaderCellDef> Relation</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <!-- <input matInput placeholder="relation" formControlName="relation"> -->
+              <mat-select placeholder="Select Relation" name="relation" formControlName="relation">
+                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="dob">
+          <mat-header-cell *matHeaderCellDef>Date Of Birth</mat-header-cell>
+          <mat-cell *matCellDef="let element;let index = index;" [formGroup]="element">
+            <mat-form-field  appearance="outline">
+              <input matInput formControlName="dob"  [matDatepicker]="picker">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                   <mat-datepicker #picker></mat-datepicker>  
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="gender">
+          <mat-header-cell *matHeaderCellDef> Gender</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <!-- <input matInput placeholder="gender" formControlName="gender"> -->
+              <mat-select placeholder="Select Gender" name="gender" formControlName="gender">
+                <mat-option *ngFor="let c of gender" [value]="c">{{c}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <!-- <ng-container matColumnDef="insuranceamount">
+          <mat-header-cell *matHeaderCellDef> Insurance Cover Amount</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="Insurance Cover Amount" formControlName="insuranceamount">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container> -->
+      
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let index = index;" >
+            <button type="button" [disabled]="disabled" (click)="removefield(index)" class="btn btn-outline-danger" *ngIf="extras.controls.length > 1" ><i class="fa fa-trash"></i></button>
+          </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </ng-container>
+    <br>
+    <button type="button" [disabled]="disabled" (click)="addfield()" class="btn btn-outline-primary"><i class="fa fa-plus"> Add</i></button>
+    <br>
+    <div class=" text-center">
+      <button mat-fab color="primary"  type="button" routerLink="/user-dashboard" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+      <button mat-fab color="primary"  type="submit" class="btn btn-primary" [disabled]="!family.valid"><mat-icon> navigate_next </mat-icon></button>
+  </div>
+  </form>
+    </mat-card>
+  </div>
+  

@@ -1,0 +1,58 @@
+*{
+    font-size: 13px ;
+    /* margin: 0px !important; */ 
+  }
+
+  h1{
+   
+    font-size: 22px;
+    text-decoration: underline;
+    font-weight: bolder;
+    text-align: center;
+  }
+  .table{
+    width: 98%;
+    border-collapse: collapse;
+}
+.table tr td{
+    padding: 8px;
+    border: .5px solid black;
+}
+.table tr th{
+    padding: 8px;
+    border: .5px solid black;
+}
+
+  .input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+hr{
+    border: 1px solid black !important;
+}
+
+.no-border{
+    border: none !important;
+}
+
+.field{
+    width: 99% !important;
+}
+.field1{
+    width: 50%;
+}
+ul ,ol{
+    list-style-type: none;
+   }
+
+li{
+    margin-bottom: 8px;
+}
+@media print {
+   
+   button{
+    display: none;
+   }
+ }
+ @page { margin: 10px}

@@ -1,0 +1,22 @@
+<pdf-viewer [src]="pdfSrc"
+[zoom]="1"
+[show-borders]="false"
+
+[stick-to-page]="true"
+[render-text]="true"
+[autoresize]="true"
+(after-load-complete)="afterLoadComplete($event)"
+(page-rendered)="pageRendered($event)"
+style="width: 100%; height: 100vh"
+></pdf-viewer>
+
+<form [formGroup]="coc" (ngSubmit)="openDialog()">
+<p align="center">
+    <mat-checkbox color="primary" [checked]="coc.get('checkbox').value" formControlName="checkbox" >I've read and accept the terms and conditions</mat-checkbox>
+  
+  </p>
+<div class=" text-center">
+    <button mat-fab color="primary" type="button" routerLink="/user-dashboard/nomination" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+    <button mat-fab color="primary" type="submit" [disabled]="!coc.valid" class="btn btn-primary"><mat-icon> navigate_next </mat-icon></button>
+</div>
+</form>

@@ -1,0 +1,81 @@
+<div  class="row">
+    <div  class="col-11">
+      <mat-slide-toggle color="primary" [(ngModel)]="checkbox" [disabled]="disable"><h2>{{data.title+"Education Details"}}</h2></mat-slide-toggle>
+
+    </div>
+    <div class="col-1"><button class="btn"  type="button" mat-dialog-close>&times;</button>
+</div>
+   
+      <!-- <p>{{education.value | json}}</p> -->
+
+      <div class="container-fluid">
+        <mat-dialog-content class="mat-typography">
+
+          <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="course">
+              <mat-header-cell *matHeaderCellDef> Course </mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.course}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="branch">
+              <mat-header-cell *matHeaderCellDef> Branch/Subjects </mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.branch}}</mat-cell>
+            </ng-container>
+    
+            <!-- Weight Column -->
+            <ng-container matColumnDef="school_Institute">
+              <mat-header-cell *matHeaderCellDef> School/Institute</mat-header-cell>
+              <mat-cell *matCellDef="let element;" >{{element.school_Institute}}</mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="board_university">
+              <mat-header-cell *matHeaderCellDef> Board/university</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.board_university}}</mat-cell>
+            </ng-container>
+    
+             <!-- Position Column -->
+             <ng-container matColumnDef="fromDate">
+              <mat-header-cell *matHeaderCellDef>From Date</mat-header-cell>
+              <mat-cell *matCellDef="let element;let index = index;">{{element.fromDate | date: 'dd/MM/yyyy'}}</mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="toDate">
+              <mat-header-cell *matHeaderCellDef>To Date</mat-header-cell>
+              <mat-cell *matCellDef="let element;let index = index;">{{element.toDate | date: 'dd/MM/yyyy'}} </mat-cell>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="noOfYears">
+              <mat-header-cell *matHeaderCellDef> No Of Years</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.noOfYears}}</mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="cgpa">
+              <mat-header-cell *matHeaderCellDef> %age/CGPA</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.cgpa}}</mat-cell>
+            </ng-container>
+    
+            <ng-container matColumnDef="document">
+              <mat-header-cell *matHeaderCellDef>Document</mat-header-cell>
+              <mat-cell *matCellDef="let element;">
+              <button mat-icon-button (click)="viewdialog(element.filetype,element.filename)"> <mat-icon>open_in_new</mat-icon></button>
+              </mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    
+        </mat-dialog-content>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button type="submit" mat-button [mat-dialog-close]="'success'"  (click)="updateformstatus()" mat-raised-button color="primary">Submit</button> 
+    </mat-dialog-actions>
+  

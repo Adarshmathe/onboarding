@@ -1,0 +1,353 @@
+   
+    <div  class="row">
+      <div  class="col-11">
+        <mat-slide-toggle color="primary"  [(ngModel)]="checkbox" [disabled]="disable"></mat-slide-toggle> &nbsp; &nbsp;<h2>{{ data.title+" Personal Details"}}</h2>
+        <!-- <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle> -->
+      </div>
+      <div class="col-1"><button class="btn"  type="button" mat-dialog-close>&times;</button>
+  </div>
+    <div class="container-fluid">
+      <mat-dialog-content class="mat-typography">
+    
+        <form class="row g-3 ">
+    
+          <ng-container >
+            <mat-card>
+              <h1 class= "text-decorate"><b>Personal Details</b></h1>
+              <div class="row g-3">
+          <div  class="col-md-2">
+            <label for="inputState" class="form-label">Title</label>
+
+            <input class="form-control" [value]="userdata.title" readonly>
+    
+          </div>
+          <div class="col-md-2">
+            <label for="inputEmail4" class="form-label">First Name</label>
+            <input type="text" [value]="userdata.firstname" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputPassword4" class="form-label">Middle Name</label>
+            <input type="text" [value]="userdata.middlename" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputPassword4" class="form-label">Last Name</label>
+            <input type="text" [value]="userdata.lastname" class="form-control" readonly />
+          </div>
+    
+          <div class="col-md-2">
+            <label for="inputState" class="form-label">Gender</label>
+         
+            <input name="gender" placeholder="select" class="form-control" [value]="userdata.gender" readonly>
+    
+          </div>
+          <div class="col-md-2">
+            <label for="inputAddress" class="form-label">Date Of Birth</label>
+            <input  class="form-control" [value]="userdata.dob | date: 'dd/MM/yyyy'" readonly>
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker> -->
+          </div>
+          
+          <div class="col-md-2">
+            <label for="inputAddress" class="form-label">Nationality</label>
+           
+            <input name="nationality" class="form-control" placeholder="select" [value]="userdata.nationality" readonly>
+          </div>
+    
+          <div class="col-md-2">
+            <label for="inputAddress2" class="form-label">Language</label>
+            <input
+            [value]="userdata.language"
+              type="text"
+              class="form-control"
+              readonly
+            />
+          </div>
+     
+    
+             <div class="col-md-2">
+            <label for="inputAddress2" class="form-label">Marital status</label>
+            <input name="natiomaritalstatusnality" class="form-control" placeholder="select" [value]="userdata.maritalstatus" readonly>
+    
+          </div>
+    
+          
+          <div class="col-md-2">
+            <label for="inputAddress2" class="form-label">Marriage Date</label>
+            <input   [value]="userdata.marriagedate | date: 'dd/MM/yyyy'" class="form-control" readonly>
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker> -->
+          </div>
+          <div class="col-md-2">
+            <label for="inputAddress2" class="form-label">Religion</label>
+            <input
+            [value]="userdata.religion"
+              type="text"
+              class="form-control"
+              id="inputAddress2"
+           
+            />
+          </div>
+    
+          <div class="col-md-2">
+            <label for="inputCity" class="form-label">E-mail</label>
+            <input type="email" [value]="userdata.email" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Contact Number</label>
+            <input type="text" [value]="userdata.contact" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputState" class="form-label">Ex-servicemen</label>
+           
+            <input name="exservicemen" placeholder="select" class="form-control" readonly [value]="userdata.exservicemen">
+    
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Caste</label>
+            <input type="text" [value]="userdata.caste" class="form-control" readonly/>
+          </div>
+          <!-- <div class="col-md-2">
+            <label for="inputZip" class="form-label">Upload Image</label><small>(Passport Size)</small>
+            <input type="file" accept="image/png,image/jpeg,application/pdf" [value]="userdata.image" class="form-control" />
+          </div> -->
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">View Image</label><small>(Passport Size)</small><br>
+            <button type="button" class="btn btn-outline-primary" (click)="viewdialog(userdata.imagedatatype,userdata.imagedataname)">View Document</button> 
+          </div>
+          <!-- <div class="col-md-2">
+            <label for="inputZip" class="form-label">Upload Signature</label>
+            <input type="file" accept="image/png,image/jpeg" [value]="userdata.signature" class="form-control"  />
+          </div> -->
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">View Signature</label>
+            <button type="button" class="btn btn-outline-primary" (click)="viewdialog(userdata.signaturetype,userdata.signaturename)">View Document</button> 
+          </div>
+    </div>
+            </mat-card>
+        </ng-container>
+      
+    
+    
+          <!-- jdhfhds -->  
+    
+          <mat-card>
+            <div class="row g-3">
+              <div class="col-md-6">
+           
+                <mat-card>
+                  <h1 class= "text-decorate"><b>Permanent Address Details</b></h1>
+                  <br>
+                  <ng-container >
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                  <label for="inputZip" class="form-label">House/Flat No.</label>
+                  <input type="text" [value]="userdata.permanentaddress.houseNo" class="form-control" readonly />
+                </div>
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">Area/Location/Apartment/Street</label>
+                  <input type="text" [value]="userdata.permanentaddress.location" class="form-control" readonly />
+                </div>
+          
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">Country</label>
+                  <input name="country" class="form-control" placeholder="select" [value]="userdata.permanentaddress.country" readonly>
+             
+                </div>
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">State</label>
+                  <input name="state" placeholder="select"class="form-control" [value]="userdata.permanentaddress.state" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">District</label>
+                  <input name="district" placeholder="select"class="form-control" [value]="userdata.permanentaddress.district" readonly>
+                </div>
+    
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">City</label>
+                  <input name="city" placeholder="select" class="form-control" [value]="userdata.permanentaddress.city" readonly>
+               
+                </div>
+               
+                <div class="col-md-6">
+                  <label for="inputZip" class="form-label">Postal Code</label>
+                  <input type="text" [value]="userdata.permanentaddress.postalCode" class="form-control" readonly />
+                  
+                </div>
+                
+                </div>
+              </ng-container>
+                </mat-card>
+               
+             
+            </div>
+           
+              <div class="col-md-6">
+            
+                <mat-card> <h1 class= "text-decorate"><b>Current Address Details</b></h1>
+                  <!-- <input type="checkbox"> <b> Same as Permanent Address</b> -->
+      
+                  <ng-container >
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                    <label for="inputZip" class="form-label">House/Flat No.</label>
+                    <input type="text" [value]="userdata.currentaddress.chouseNo" class="form-control" readonly />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">Area/Location/Apartment/Street</label>
+                    <input type="text" [value]="userdata.currentaddress.clocation" class="form-control" readonly />
+                  </div>
+                 
+  
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">Country</label>
+                    <input name="ccountry" placeholder="select" class="form-control" [value]="userdata.currentaddress.ccountry" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">State</label>
+                    <input name="cstate" placeholder="select" class="form-control" [value]="userdata.currentaddress.cstate" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">District</label>
+                    <input name="cdistrict" placeholder="select" class="form-control" [value]="userdata.currentaddress.cdistrict" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">City</label>
+                    <input name="ccity" placeholder="select" class="form-control" [value]="userdata.currentaddress.ccity" readonly>
+                  </div>
+                
+                  <div class="col-md-6">
+                    <label for="inputZip" class="form-label">Postal Code</label>
+                    <input type="text" [value]="userdata.currentaddress.cpostalCode" class="form-control" readonly/>
+                  </div>
+              
+                  </div>
+              </ng-container></mat-card>
+               
+            </div>
+              </div>
+          </mat-card>
+       
+        <mat-card>
+          <h1 class= "text-decorate"><b>Passport Details</b></h1>
+          <br>
+          <ng-container>
+            <div class="row g-3">
+             
+            <!-- <p>
+              <mat-checkbox color="primary" [value]="userdata.passportDetails.isavailable">Do you have Passport ?</mat-checkbox>
+            
+            </p> -->
+          <div class="col-md-2" >
+            <label for="inputZip" class="form-label">Passport Number</label>
+            <input type="text" [value]="userdata.passportDetails.passportNumber" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Place of Issue</label>
+            <input type="text" [value]="userdata.passportDetails.placeofissue" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Issuing Authority</label>
+            <input type="text" [value]="userdata.passportDetails.issuingauth" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Date Of Issue</label>
+            <!-- <input type="text" [value]="userdata.dateofissue" class="form-control" id="inputZip" /> -->
+            <input   [value]="userdata.passportDetails.dateofissue | date: 'dd/MM/yyyy'" class="form-control" readonly />
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker> -->
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Date Of Expiry</label>
+            <!-- <input type="text" [value]="userdata.dateofexpiry" class="form-control" id="inputZip" /> -->
+            <input   [value]="userdata.passportDetails.dateofexpiry | date: 'dd/MM/yyyy'" class="form-control" readonly />
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker> -->
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Visible Distinguishing Mark</label>
+            <input type="text" [value]="userdata.passportDetails.visibledismark" class="form-control" readonly />
+          </div>
+    
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">House/Flat Number</label>
+            <input type="text" [value]="userdata.passportDetails.phouseNo" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Area/Location/street</label>
+            <input type="text" [value]="userdata.passportDetails.parea" class="form-control" readonly />
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">State</label>
+            <input name="pstate"  class="form-control" [value]="userdata.passportDetails.pstate" readonly>
+    
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">City</label>
+            <input name="pcity" class="form-control"[value]="userdata.passportDetails.pcity" readonly>
+    
+          </div>
+    
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">District</label>
+            <input name="pdistrict"  class="form-control" [value]="userdata.passportDetails.pdistrict" readonly>
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Postal Code</label>
+            <input type="text" [value]="userdata.passportDetails.ppostalcode" class="form-control" readonly />
+    
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">View Passport</label>
+            <button type="button" class="btn btn-outline-primary" (click)="viewdialog(userdata.passportDetails.passportfiletype,userdata.passportDetails.passportfilename)">View Document</button> 
+          </div>
+            </div>
+        </ng-container>
+      </mat-card>
+    
+      <mat-card>
+        <div class="row g-3">
+        <h1 class= "text-decorate"><b>Pan Card  & Adhar Card Details</b></h1>
+        <ng-container >
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Pan Card Number</label>
+            <input type="text" [value]="userdata.panAndaadhar.panNumber" maxlength="10" minlength="10"  class="form-control" readonly />
+          </div>
+          <!-- <div class="col-md-2">
+            <label for="inputZip" class="form-label">confirm Pan Card Number</label>
+            <input type="text"  [value]="userdata.panAndaadhar.confirmpanNumber" maxlength="10" minlength="10" class="form-control design" />
+          </div> -->
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">View Pan Card</label>
+            <button type="button" class="btn btn-outline-primary" (click)="viewdialog(userdata.panAndaadhar.pancardfiletype,userdata.panAndaadhar.pancardfilename)">View Document</button> 
+          </div>
+    
+    
+    
+     
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Aadhar Card Number</label>
+            <input type="text" [value]="userdata.panAndaadhar.aadharNumber" class="form-control" readonly/>
+          </div>
+          <!-- <div class="col-md-2">
+            <label for="inputZip" class="form-label">Confirm Aadhar Card Number</label>
+            <input type="text" [value]="userdata.panAndaadhar.confirmaadharNumber" class="form-control design" />
+          </div> -->
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">View Aadhar Card</label>
+            <button type="button" class="btn btn-outline-primary" (click)="viewdialog(userdata.panAndaadhar.aadharcardfiletype,userdata.panAndaadhar.aadharcardfilename)">View Document</button> 
+          </div>
+    
+         
+        </ng-container>
+      </div>
+      </mat-card>
+        </form>
+        <br><br>
+    </mat-dialog-content>
+  
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button type="submit" mat-button [mat-dialog-close]="'success'"  (click)="updateformstatus()" mat-raised-button color="primary">Submit</button> 
+    </mat-dialog-actions>
+  

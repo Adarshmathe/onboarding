@@ -1,0 +1,180 @@
+<app-nav-bar></app-nav-bar>
+<lib-ng-toast></lib-ng-toast>
+<div class="container-fluid py-3 bg-light">
+    <div class="flex-container">
+        <div  class="container1">
+            <h2>Employee Management</h2>
+        </div>
+        <div class="container2">
+            <button type="button" class="btn btn-outline-primary" (click)="openDialog()" ><i class="fa fa-plus">Add Employee</i></button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <form (ngSubmit)="search()">
+  <div class="row d-flex justify-content-star pt-4">
+    <div class="form-group col-md-4">
+        <mat-form-field appearance="outline">
+            <mat-label>
+                <mat-icon>search</mat-icon> Search
+            </mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search all Users" #input>
+        </mat-form-field>
+    </div>
+  
+        <!-- <label style="width: 10px;" for="FromDate" class="col-sm-2 col-form-label">From Date:</label> -->
+      
+        <div class="col-md-3">
+              
+            <mat-form-field appearance="outline">
+                <input matInput name="FromDate"  [(ngModel)]="dates.start"  [matDatepicker]="picker" placeholder="From Date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                     <mat-datepicker #picker></mat-datepicker>  
+                     <!-- <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error> -->
+              </mat-form-field>
+        </div>
+        <!-- <label style="width: 10px;" for="ToDate" class="col-sm-2 col-form-label">To Date:</label> -->
+        <div class="col-md-3">
+           <mat-form-field appearance="outline">
+            <input matInput name="FromDate"  [(ngModel)]="dates.end"  [matDatepicker]="picker1" placeholder="To Date">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                 <mat-datepicker #picker1></mat-datepicker>  
+                 <!-- <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error> -->
+          </mat-form-field>
+        </div>
+  
+
+        <div  class="col-md-2" style="padding: 10px;" >
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+
+</div>
+</form>
+<div class="mb-3">Users</div>
+
+    <mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> SNO. </mat-header-cell>
+            <mat-cell *matCellDef="let index = index">{{index +1}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="mobile">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.mobile}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.role}} </mat-cell>
+        </ng-container>     
+
+        <ng-container matColumnDef="Status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.enabled ? 'Active' : 'Inactive'}} </mat-cell>
+        </ng-container>   
+
+        <ng-container matColumnDef="CreatedOn">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Created On</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.createdOn | date: 'dd/MM/yyyy'}}</mat-cell>
+        </ng-container>  
+
+        <ng-container matColumnDef="projectGear">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-icon>settings</mat-icon>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <mat-icon [matMenuTriggerFor]="menu" style="cursor: pointer">more_horiz</mat-icon>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <button mat-menu-item (click)="openDialog1(element.id)">
+                        <mat-icon>edit</mat-icon> Edit
+                    </button>
+                    <!-- <button mat-menu-item (click)="reset(element.id)">
+                        <mat-icon> vpn_key </mat-icon> Reset Password
+                    </button> -->
+                    <button mat-menu-item  (click)="reset(resetModal,element.id)">
+                        <mat-icon> vpn_key </mat-icon> Reset Password
+                    </button>
+
+                    <button mat-menu-item (click)="openDialog2(element.id)">
+                        <mat-icon>delete_forever</mat-icon> Delete
+                    </button>
+                    <button mat-menu-item (click)="changeStatus(element.id)">
+                        <mat-icon>not_interested</mat-icon> {{element.enabled ? 'Disable' : 'Enable'}}
+                    </button>
+                    <button mat-menu-item (click)="sendEmail(element.email)">
+                        <mat-icon>email</mat-icon> send Email
+                    </button>
+                    <button mat-menu-item [matMenuTriggerFor]="details">
+                        <mat-icon>view_comfy</mat-icon> View
+                    </button>
+                    <button mat-menu-item (click)="downloadDialog(element.id)" >
+                        <mat-icon>download</mat-icon> Download
+                    </button>
+                </mat-menu>
+
+                <mat-menu #details="matMenu">
+                    <button mat-menu-item (click)="personalDetailsdialog(element.id)" >Personal Details </button>
+                    <button mat-menu-item (click)="familyDetailsdialog(element.id)">Family Details</button>
+                    <button mat-menu-item (click)="educationDetailsdialog(element.id)">Education Details</button>
+                    <button mat-menu-item (click)="experienceDetailsdialog(element.id)" >Experience Details </button>
+                    <button mat-menu-item (click)="bankDetailsdialog(element.id)">Bank Details</button>
+                    <button mat-menu-item (click)="providentFunddialog(element.id)">Provident Fund</button>
+                    <button mat-menu-item (click)="gratuitydialog(element.id)">Gratuity</button>
+                    <button mat-menu-item (click)="employeeconfidentialdialog(element.id)">Employee Confidentiality Agreement</button>
+                    <button mat-menu-item (click)="mediclaimdialog(element.id)">Group Mediclaim</button>
+                    <button mat-menu-item (click)="insurancedialog(element.id)">Group Term Insurance and Group Personal Accident Insurance</button>
+                    <button mat-menu-item (click)="nominationdialog(element.id)">Nomination in PF</button>
+                    <button mat-menu-item (click)="cocdialog(element.id)">Code Of Conduct</button>
+                    
+                </mat-menu>
+
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+       
+    </mat-table>
+
+</div>
+<mat-paginator showFirstLastButtons  [pageSize]="5" [pageSizeOptions]="[5, 10, 15, 20]">
+</mat-paginator>
+
+<ng-template #resetModal let-modal>
+    <div class="modal-header">
+      <!-- <h4 class="modal-title" id="modal-basic-title">Reset Password</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button> -->
+      
+            <h4 class="modal-title" id="modal-basic-title" style="margin: 0px;">Reset Password</h4>
+    
+        <button class="btn"  type="button" (click)="modal.dismiss('Cross click')" >&times;</button>
+  
+    </div>
+
+    <div class="modal-body">
+        <label for="inputZip" class="form-label">New Password :</label>
+     <input type="password" class="form-control" [(ngModel)]="newpassword.password" required="true">
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>

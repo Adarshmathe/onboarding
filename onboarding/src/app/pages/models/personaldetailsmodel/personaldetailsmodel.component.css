@@ -1,0 +1,27 @@
+
+
+  mat-card{
+    padding: 12px;
+    border-radius: 12px;
+    border : 1px solid #c2bbbb;
+  }
+
+  h2{
+    margin: 0 !important;
+    display: inline-block;
+    margin-left: 1px;
+  }
+
+  .text-decorate{
+    background-color: #50a0e5;
+   padding: 1px;
+    text-align: center !important;
+    border-radius: 11px !important;
+    
+  }
+
+  input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+
+ .design { -webkit-text-security: square !important; }

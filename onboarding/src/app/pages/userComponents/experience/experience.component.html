@@ -1,0 +1,111 @@
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Experience Details</mat-card-title>
+      </mat-card-header>
+
+      <!-- <p>{{exp.value| json}}</p> -->
+
+      <form [formGroup]="exp" autocomplete="off"(ngSubmit)="save()">
+        <ng-container formArrayName="extras">
+
+      <mat-table [dataSource]="extras.controls" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="employer">
+          <mat-header-cell *matHeaderCellDef> Employer </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput  placeholder="employer" formControlName="employer">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="place">
+          <mat-header-cell *matHeaderCellDef> Place </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="place" formControlName="place">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="industry">
+          <mat-header-cell *matHeaderCellDef> Industry</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="industry" formControlName="industry">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="designation">
+          <mat-header-cell *matHeaderCellDef> Designation</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="designation" formControlName="designation">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+         <!-- Position Column -->
+         <ng-container matColumnDef="fromDate">
+          <mat-header-cell *matHeaderCellDef>From Date</mat-header-cell>
+          <mat-cell *matCellDef="let element;let index = index;" [formGroup]="element">
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="fromDate"  [matDatepicker]="picker1" (dateChange)="dateChange(index)">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                   <mat-datepicker #picker1></mat-datepicker>  
+                   <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="toDate">
+          <mat-header-cell *matHeaderCellDef>To Date</mat-header-cell>
+          <mat-cell *matCellDef="let element;let index = index;" [formGroup]="element">
+            <mat-form-field  appearance="outline">
+              <input matInput formControlName="toDate"  [matDatepicker]="picker" (dateChange)="dateChange(index)">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                   <mat-datepicker #picker></mat-datepicker>  
+                   <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="experience">
+          <mat-header-cell *matHeaderCellDef> Experience in years</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="experience" formControlName="experience" readonly="true">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let index = index;" >
+            <button type="button" [disabled]="disabled" (click)="removefield(index)" class="btn btn-outline-danger" *ngIf="extras.controls.length > 1" ><i class="fa fa-trash"></i></button>
+          </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </ng-container>
+    <br>
+    <button type="button" [disabled]="disabled" (click)="addfield()" class="btn btn-outline-primary"><i class="fa fa-plus"> Add</i></button>
+    <br>
+    <div class=" text-center">
+      <button mat-fab color="primary" type="button" routerLink="/user-dashboard/education" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+      <button mat-fab color="primary" type="submit" class="btn btn-primary" [disabled]="!exp.valid"><mat-icon> navigate_next </mat-icon></button>
+  </div>
+  </form>
+    </mat-card>
+  </div>
+  

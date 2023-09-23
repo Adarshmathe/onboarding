@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-11">
+    <h2>{{ data.title }}</h2>
+  </div>
+  <div class="col-1">
+    <button class="btn" type="button" mat-dialog-close>&times;</button>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <mat-dialog-content class="mat-typography">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card> 
+            <form [formGroup]="email" (ngSubmit)="Submit()">
+ 
+                <div class="form-group mb-3">
+                    <label for="exampleInputEmail1">To</label>
+                    <input type="email" class="form-control" formControlName="to" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" >
+                </div>
+                <div class="form-group mb-3">
+                    <label for="exampleInputEmail1">Subject</label>
+                    <input type="email" class="form-control" formControlName="subject" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter subject">
+                </div>
+
+                <div class="form-group mb-3">
+                    <input type="file" (change)="onselectFile($event)" accept="image/png,image/jpeg,application/pdf">
+                </div>
+           
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Compose email</label>
+                <textarea class="form-control"  formControlName="message"  id="exampleFormControlTextarea1" rows="6"></textarea>
+            </div>
+        </form>
+              
+        </mat-card>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="submit" (click)="Submit()" mat-button [mat-dialog-close]="'success'" mat-raised-button color="primary">Submit</button> 
+  </mat-dialog-actions>

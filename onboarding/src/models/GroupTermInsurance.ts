@@ -1,0 +1,107 @@
+export class groupInsuranceDetails {
+  public id: Number;
+  public gtiuser: gtiuser;
+  public name: string;
+  public name2: string;
+  public r1c2: string;
+  public r1c3: string;
+  public r1c4: string;
+  public r1c5:Date;
+  public r1c6: string;
+  public r1c7: string;
+  public r2c2: string;
+  public r2c3: string;
+  public r2c4: string;
+  public r2c5:Date;
+  public r2c6: string;
+  public r2c7: string;
+  public r3c2: string;
+  public r3c3: string;
+  public r3c4: string;
+  public r3c5: Date;
+  public r3c6: string;
+  public r3c7: string;
+  public r4c2: string;
+  public r4c3: string;
+  public r4c4: string;
+  public r4c5: Date;
+  public r4c6: string;
+  public r4c7: string;
+  public r5c2: string;
+  public r5c3: string;
+  public r5c4: string;
+  public r5c5: Date;
+  public r5c6: string;
+  public r5c7: string;
+  public r6c2: string;
+  public r6c3: string;
+  public r6c4: string;
+  public r6c5:Date;
+  public r6c6: string;
+  public r6c7: string;
+  public name1: string;
+  public place: string;
+  public erp: string;
+  public dob: Date;
+  public sex: string;
+  public maritalstatus: string;
+  public address: string;
+  public date:Date;
+  constructor() {
+    this.id = 0;
+    this.gtiuser = new gtiuser();
+    this.name = '';
+    this.name2 = '';
+    this.r1c2 = '';
+    this.r1c3 = '';
+    this.r1c4 = '';
+    this.r1c5 = null;
+    this.r1c6 = '';
+    this.r1c7 = '';
+    this.r2c2 = '';
+    this.r2c3 = '';
+    this.r2c4 = '';
+    this.r2c5 = null;
+    this.r2c6 = '';
+    this.r2c7 = '';
+    this.r3c2 = '';
+    this.r3c3 = '';
+    this.r3c4 = '';
+    this.r3c5 = null;
+    this.r3c6 = '';
+    this.r3c7 = '';
+    this.r4c2 = '';
+    this.r4c3 = '';
+    this.r4c4 = '';
+    this.r4c5 = null;
+    this.r4c6 = '';
+    this.r4c7 = '';
+    this.r5c2 = '';
+    this.r5c3 = '';
+    this.r5c4 = '';
+    this.r5c5 = null;
+    this.r5c6 = '';
+    this.r5c7 = '';
+    this.r6c2 = '';
+    this.r6c3 = '';
+    this.r6c4 = '';
+    this.r6c5 = null;
+    this.r6c6 = '';
+    this.r6c7 = '';
+    this.name1 = ';';
+    this.place = '';
+    this.erp = '';
+    this.dob = null;
+    this.sex = '';
+    this.maritalstatus = '';
+    this.address = '';
+    this.date = null;
+  }
+}
+
+class gtiuser {
+  public id: Number;
+  constructor() {
+    this.id = 0;
+  }
+}

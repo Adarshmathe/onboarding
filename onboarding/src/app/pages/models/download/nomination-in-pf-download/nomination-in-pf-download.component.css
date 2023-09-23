@@ -1,0 +1,56 @@
+*{
+    font-size: 11px ;
+    /* margin: 0px !important;  */
+  }
+.input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+p{
+    margin: 0px;
+}
+
+.field{
+    width: 24%;
+}
+
+ul ,ol{
+    list-style-type: none;
+   }
+   li{
+    margin-bottom: 10px;
+}
+
+.table{
+    width: 98%;
+    border-collapse: collapse;
+}
+.table tr td{
+    padding: 8px;
+    border: .5px solid black;
+}
+.table tr th{
+    padding: 8px;
+    border: .5px solid black;
+}
+
+  .input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+.no-border{
+    border: none !important;
+}
+
+.field1{
+    width: 99%;
+}
+@media print {
+   
+    button{
+     display: none;
+    }
+  }
+  @page { margin: 10px 30px}

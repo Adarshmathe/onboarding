@@ -1,0 +1,198 @@
+<div  class="row">
+    <div  class="col-11">
+        <mat-slide-toggle color="primary" [(ngModel)]="checkbox" [disabled]="disable"><h2>{{data.title+" Group Mediclaim Details"}}</h2></mat-slide-toggle>
+    </div>
+    <div class="col-1"><button class="btn"  type="button" mat-dialog-close>&times;</button>
+</div>
+<div class="container-fluid">
+    <mat-dialog-content class="mat-typography">
+    <div class="row">
+        <div class="col-md-12 ">
+    <mat-card>
+            <div class="text-center">
+                <h1><b><u>ZFHL GROUP MEDICLAIM PROPOSAL FORM</u></b></h1>
+               <p>(To be completed by each employee / member in respect of himself / herself)</p>
+              
+            </div>
+
+            <!-- <p>{{pf.value | json}}</p> -->
+
+<div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li>Name of the employee :
+                    <input style="width:78% ;" class="input-border" [value]="userdata.name" readonly type="text">
+                </li>
+                <li>Management/ Non-Management :
+                    <input style="width:69% ;"  class=" input-border" [value]="userdata.management" readonly type="text">
+                </li>
+                <li>Email ID (either official or personal) :
+                    <input style="width:67% ;"  class=" input-border" [value]="userdata.email" readonly type="text">
+                </li>
+                <li>Address :
+                    <input style="width:91% ;"  class=" input-border" [value]="userdata.address" readonly type="text">
+                </li>
+                <li>Mobile No :
+                    <input style="width:89% ;"  class=" input-border" [value]="userdata.mobile" readonly type="text">
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li>EPR No :
+                    <input style="width:91% ;" class=" field input-border" [value]="userdata.erp" readonlyuserdata. type readonly="text">
+                </li>
+                <li>DOJ :
+                    <input style="width:94% ;" class="field input-border" [value]="userdata.doj | date: 'dd/MM/yyyy'" readonlyuserdata. type readonly="text">
+                </li>
+                <li>Dept :
+                    <input style="width:94% ;" class="field input-border" [value]="userdata.dept" readonlyuserdata. type readonly="text">
+                </li>
+                <li>Designation & Grade :
+                    <input style="width:80% ;" class="field input-border" [value]="userdata.designation" readonlyuserdata. type readonly="text">
+                </li>
+                <li>Alternate No :
+                    <input style="width:87% ;" class="field input-border" [value]="userdata.alternateno" readonlyuserdata. type readonly="text">
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+
+<div class="text-center">
+    <p>(Names of the persons to be to be covered in Capital Letters. (A copy of Birth Certificate / of age to be submitted in case of addition of children. 
+        Not required for other cases)
+    </p>
+</div>
+
+<div style="margin-left:32px ;" class="table-responsive">
+<table  class="table">
+   <tr>
+    <th>Sr No.</th>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Relationship</th>
+    <th>Age</th>
+    <th>Details of any Congenital defects at the inception of the insurance cover</th>
+   </tr>
+
+<tr>
+   
+    <td>1</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r1c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c3 | date: 'dd/MM/yyyy'" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c6" readonly type="text"></td> -->
+    <td>{{userdata.r1c2}}</td>
+    <td>{{userdata.r1c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r1c4}}</td>
+    <td>{{userdata.r1c5}}</td>
+    <td>{{userdata.r1c6}}</td>
+   
+</tr>
+<tr>
+    <td>2</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r2c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c3 | date: 'dd/MM/yyyy'" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c6" readonly type="text"></td> -->
+    <td>{{userdata.r2c2}}</td>
+    <td>{{userdata.r2c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r2c4}}</td>
+    <td>{{userdata.r2c5}}</td>
+    <td>{{userdata.r2c6}}</td>
+</tr>
+<tr>
+    <td>3</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r3c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c3 | date: 'dd/MM/yyyy'" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c6" readonly type="text"></td> -->
+    <td>{{userdata.r3c2}}</td>
+    <td>{{userdata.r3c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r3c4}}</td>
+    <td>{{userdata.r3c5}}</td>
+    <td>{{userdata.r3c6}}</td>
+</tr>
+<tr>
+    <td>4</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r4c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r4c3 | date: 'dd/MM/yyyy'" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r4c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r4c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r4c6" readonly type="text"></td> -->
+    <td>{{userdata.r4c2}}</td>
+    <td>{{userdata.r4c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r4c4}}</td>
+    <td>{{userdata.r4c5}}</td>
+    <td>{{userdata.r4c6}}</td>
+</tr>
+<tr>
+    <td>5</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r5c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r5c3" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r5c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r5c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r5c6" readonly type="text"></td> -->
+    <td>{{userdata.r5c2}}</td>
+    <td>{{userdata.r5c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r5c4}}</td>
+    <td>{{userdata.r5c5}}</td>
+    <td>{{userdata.r5c6}}</td>
+</tr>
+<tr>
+    <td>6</td>
+    <!-- <td><input class="no-border field" [value]="userdata.r6c2" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r6c3 | date: 'dd/MM/yyyy'" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r6c4" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r6c5" readonly type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r6c6" readonly type="text"></td> -->
+    <td>{{userdata.r6c2}}</td>
+    <td>{{userdata.r6c3 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r6c4}}</td>
+    <td>{{userdata.r6c5}}</td>
+    <td>{{userdata.r6c6}}</td>
+</tr>
+ </table>
+</div>
+
+<ul>
+    <li>All the statements made above and the answers given are wholly true and correct to the best of my knowledge and belief. I have disclosed all particulars materials to the risk. It is hereby understood and agreed that the statements/ answer and particulars are basis on which the insurance is being granted. If after the insurance is effected, it is found that the statements, answer or particulars are incorrect or untrue in any respect the company shall have no liability under this insurance.</li>
+</ul>
+
+<ul>
+    <li><img [src]="url" width="120" height="100" alt="img"></li>
+    <li>Signature of Employee
+    </li>
+    <li>Place :
+        <input class=" input-border" [value]="userdata.place" type="text">
+    </li>
+    <li>Date :
+        <input class=" input-border" [value]="userdata.date | date: 'dd/MM/yyyy'" type="text">
+    </li>
+   
+    <li align="end" style="margin-right:7% ;">Signature of Employer </li>
+</ul>
+
+
+</div>
+
+</mat-card>
+
+
+</div>
+</div>
+<br>
+</mat-dialog-content>
+</div>
+
+<mat-dialog-actions align="end">
+    <button type="submit" mat-button [mat-dialog-close]="'success'"  (click)="updateformstatus()" mat-raised-button color="primary">Submit</button> 
+  </mat-dialog-actions>
+

@@ -1,0 +1,339 @@
+<div>
+  <mat-card>
+ 
+    <!-- <p>{{personal.value | json}}</p> -->
+    <form class="row g-3 " [formGroup]="personal" (ngSubmit)="Submit()">
+
+      <ng-container >
+        <mat-card>
+          <h1 class= "text-decorate"><b>Personal Details</b></h1>
+          <div class="row g-3">
+      <div  class="col-md-2">
+        <label for="inputState" class="form-label">Title</label>
+        <ng-select name="title" placeholder="select" [items]="titles" formControlName="title"></ng-select>
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputEmail4" class="form-label">First Name</label>
+        <input type="text" formControlName="firstname" (keypress)="_keyPress1($event)" class="form-control " id="inputEmail4" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputPassword4" class="form-label">Middle Name</label>
+        <input type="text" formControlName="middlename" class="form-control" id="inputPassword4" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputPassword4" class="form-label">Last Name</label>
+        <input type="text" formControlName="lastname" class="form-control" id="inputPassword4" />
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">Gender</label>
+        <ng-select name="gender" placeholder="select" [items]="gender" formControlName="gender"></ng-select>
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputAddress" class="form-label">Date Of Birth</label>
+        <input  class="form-control" formControlName="dob" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+      
+      <div class="col-md-2">
+        <label for="inputAddress" class="form-label">Nationality</label>
+        <ng-select name="nationality" placeholder="select" [items]="Nationality" formControlName="nationality"></ng-select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputAddress2" class="form-label">Language</label>
+        <input
+        formControlName="language"
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+        
+        />
+      </div>
+ 
+         <div class="col-md-2">
+        <label for="inputAddress2" class="form-label">Marital status</label>
+        <ng-select name="natiomaritalstatusnality" placeholder="select" [items]="maritalstatus" formControlName="maritalstatus"></ng-select>
+
+      </div>
+
+      
+      <div class="col-md-2">
+        <label for="inputAddress2" class="form-label">Marriage Date</label>
+        <input   formControlName="marriagedate" class="form-control" [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </div>
+      <div class="col-md-2">
+        <label for="inputAddress2" class="form-label">Religion</label>
+        <input
+        formControlName="religion"
+          type="text"
+          class="form-control"
+          id="inputAddress2"
+       
+        />
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputCity" class="form-label">E-mail</label>
+        <input type="email" formControlName="email" class="form-control" id="inputCity" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Contact Number</label>
+        <input type="text" minlength="10" maxlength="10" pattern='^[a-zA-Z0-9_]*$' (keypress)="_keyPress($event)" formControlName="contact" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputState" class="form-label">Ex-servicemen</label>
+        <ng-select name="exservicemen" placeholder="select" [items]="options" formControlName="exservicemen"></ng-select>
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Caste</label>
+        <input type="text" formControlName="caste" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-3">
+        <label for="inputZip" class="form-label">Upload Image</label><small>(Passport Size)</small>
+        <mat-hint *ngIf="this.personal.get('imagedataname').value !=''" style="color: green;" > &nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+        <mat-hint *ngIf="this.personal.get('imagedata').value !=''" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+        <input type="file" accept="image/png,image/jpeg,application/pdf" formControlName="image" class="form-control" (change)="onselectFile3($event)" />
+        <mat-error *ngIf="this.personal.get('image').invalid" class="text-danger">{{errormsg}}</mat-error>
+      </div>
+      <div class="col-md-3">
+        <label for="inputZip" class="form-label">Upload Signature</label><small>(Image only)</small>
+        <mat-hint *ngIf="this.personal.get('signaturename').value !=''" style="color: green;" >&nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+        <mat-hint *ngIf="this.personal.get('signaturedata').value !=''" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+        <input type="file" accept="image/png,image/jpeg" formControlName="signature" class="form-control" (change)="onselectFile4($event)" />
+        <mat-error *ngIf="this.personal.get('signature').invalid" class="text-danger">{{errormsg}}</mat-error>
+      </div>
+</div>
+        </mat-card>
+    </ng-container>
+      <mat-card>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <mat-card>
+              <h1 class= "text-decorate"><b>Permanent Address Details</b></h1>
+              <br>
+              <ng-container formGroupName="permanentaddress">
+              <div class="row g-3">
+                <div class="col-md-6">
+              <label for="inputZip" class="form-label">House/Flat No.</label>
+              <input type="text" formControlName="houseNo" class="form-control" id="inputZip" />
+            </div>
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">Area/Location/Apartment/Street</label>
+              <input type="text" formControlName="location" class="form-control" id="inputZip" />
+            </div>
+        
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">Country</label>
+              <ng-select name="country" placeholder="select" (change)="onCountryChange($event)" [items]="countries" bindLabel="name" bindValue="name"  formControlName="country">
+              </ng-select>
+            </div>
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">State</label>
+              <ng-select name="state" placeholder="select"  bindLabel="name" bindValue="name"  (change)="onStateChange($event)" [items]="states" formControlName="state">
+              </ng-select>
+            </div>
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">District</label>
+              <ng-select name="district" placeholder="select" bindLabel="name" bindValue="name" [items]="districts" formControlName="district"></ng-select>
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">City</label>
+              <ng-select name="city" placeholder="select" bindLabel="name" bindValue="name" [items]="cities" formControlName="city">
+              </ng-select>
+            </div>
+           
+            <div class="col-md-6">
+              <label for="inputZip" class="form-label">Postal Code</label>
+              <input type="text" minlength="6" maxlength="6" pattern='^[a-zA-Z0-9_]*$'(keypress)="_keyPress($event)" formControlName="postalCode" class="form-control" id="inputZip" />
+              
+            </div>
+            </div>
+          </ng-container>
+            </mat-card>
+           
+        </div>
+          <div class="col-md-6">
+          
+            <mat-card> <h1 class= "text-decorate"><b>Current Address Details</b></h1>
+              <input type="checkbox" [formControl]="isSameAddressControl"> <b> Same as Permanent Address</b>
+  
+              <ng-container formGroupName="currentaddress">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                <label for="inputZip" class="form-label">House/Flat No.</label>
+                <input type="text" formControlName="chouseNo" class="form-control" id="inputZip" />
+              </div>
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">Area/Location/Apartment/Street</label>
+                <input type="text" formControlName="clocation" class="form-control" id="inputZip" />
+              </div>
+         
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">Country</label>
+                <ng-select name="ccountry" placeholder="select" [items]="countries" bindLabel="name" bindValue="name" (change)="onCountryChange1($event)" formControlName="ccountry"></ng-select>
+              </div>
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">State</label>
+                <ng-select name="cstate" placeholder="select" [items]="states1" bindLabel="name" bindValue="name" (change)="onStateChange1($event)" formControlName="cstate"></ng-select>
+              </div>
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">District</label>
+                <ng-select name="cdistrict" placeholder="select" [items]="districts1" bindLabel="name" bindValue="name" formControlName="cdistrict"></ng-select>
+              </div>
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">City</label>
+                <ng-select name="ccity" placeholder="select" [items]="cities1" bindLabel="name" bindValue="name" formControlName="ccity"></ng-select>
+              </div>
+            
+              <div class="col-md-6">
+                <label for="inputZip" class="form-label">Postal Code</label>
+                <input type="text" minlength="6" maxlength="6" pattern='^[a-zA-Z0-9_]*$'(keypress)="_keyPress($event)" formControlName="cpostalCode" class="form-control" id="inputZip" />
+              </div>
+              </div>
+          </ng-container></mat-card>
+           
+        </div>
+          </div>
+      </mat-card>
+   
+    <mat-card>
+      <h1 class= "text-decorate"><b>Passport Details</b></h1>
+      <br>
+      <ng-container formGroupName="passportDetails">
+        <div class="row g-3">
+         
+        <p>
+          <mat-checkbox color="primary" formControlName="isavailable" >Do you have Passport ?</mat-checkbox>
+        
+        </p>
+      <div class="col-md-2" >
+        <label for="inputZip" class="form-label">Passport Number</label>
+        <input type="text" formControlName="passportNumber" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Place of Issue</label>
+        <input type="text" formControlName="placeofissue" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Issuing Authority</label>
+        <input type="text" formControlName="issuingauth" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Date Of Issue</label>
+        <input   formControlName="dateofissue" class="form-control" [matDatepicker]="picker2" (dateChange)="dateChange()">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        <mat-error *ngIf="this.personal.get('passportDetails.dateofissue').touched && this.personal.get('passportDetails.dateofissue').invalid" class="text-danger">{{errormsg}}</mat-error>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Date Of Expiry</label>
+        <input   formControlName="dateofexpiry" class="form-control" [matDatepicker]="picker3" (dateChange)="dateChange()">
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-error *ngIf="this.personal.get('passportDetails.dateofexpiry').touched && this.personal.get('passportDetails.dateofexpiry').invalid" class="text-danger">{{errormsg}}</mat-error>
+        <mat-datepicker #picker3></mat-datepicker>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Visible Distinguishing Mark</label>
+        <input type="text" formControlName="visibledismark" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">House/Flat Number</label>
+        <input type="text" formControlName="phouseNo" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Area/Location/street</label>
+        <input type="text" formControlName="parea" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">State</label>
+        <ng-select name="pstate" placeholder="select" bindLabel="name" bindValue="name" (change)="onStateChange2($event)" [items]="states2" formControlName="pstate"></ng-select>
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">City</label>
+        <ng-select name="pcity" placeholder="select" bindLabel="name" bindValue="name" [items]="cities2" formControlName="pcity"></ng-select>
+
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">District</label>
+        <ng-select name="pdistrict" placeholder="select" bindLabel="name" bindValue="name" [items]="districts2" formControlName="pdistrict"></ng-select>
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Postal Code</label>
+        <input type="text" formControlName="ppostalcode"  minlength="6" maxlength="6" pattern='^[a-zA-Z0-9_]*$'(keypress)="_keyPress($event)" class="form-control" id="inputZip" />
+
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Upload Passport</label>
+        <mat-hint *ngIf="this.personal.get('passportDetails.passportfilename').value !=''" style="color: green;" >&nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+        <mat-hint *ngIf="this.personal.get('passportDetails.passportfiledata').value !=''" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+        <input type="file" accept="image/png,image/jpeg,application/pdf" formControlName="passportfile" class="form-control" (change)="onselectFile2($event)" />
+        <mat-error *ngIf="this.personal.get('passportDetails.passportfile').invalid" class="text-danger">{{errormsg}}</mat-error>
+
+      </div>
+        </div>
+    </ng-container>
+  </mat-card>
+
+  <mat-card>
+    <div class="row g-3">
+    <h1 class= "text-decorate"><b>Pan Card  & Adhar Card Details</b></h1>
+    <ng-container formGroupName="panAndaadhar">
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Pan Card Number</label>
+        <input type="text" formControlName="panNumber" maxlength="10" minlength="10"  class="form-control" (change)="OnpancardChange($event)"/>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">confirm Pan Card Number</label>
+        <input type="text"  formControlName="confirmpanNumber" maxlength="10"  class="form-control design" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Upload Pan Card</label>
+        <mat-hint *ngIf="this.personal.get('panAndaadhar.pancardfilename').value !=''" style="color: green;" >&nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+        <mat-hint *ngIf="this.personal.get('panAndaadhar.pancardfiledata').value !=''" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+        <input type="file" accept="image/png,image/jpeg,application/pdf" formControlName="pancardfile" class="form-control" (change)="onselectFile($event)" />
+        <mat-error *ngIf="this.personal.get('panAndaadhar.pancardfile').invalid" class="text-danger">{{errormsg}}</mat-error>
+
+      </div>
+
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Aadhar Card Number</label>
+        <input type="text" formControlName="aadharNumber" minlength="12" maxlength="12" pattern='^[a-zA-Z0-9_]*$'(keypress)="_keyPress($event)" class="form-control" (change)="OnaadharcardChange($event)" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Confirm Aadhar Card Number</label>
+        <input type="text" formControlName="confirmaadharNumber" maxlength="12" pattern='^[a-zA-Z0-9_]*$'(keypress)="_keyPress($event)" class="form-control design" />
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Upload Aadhar Card</label>
+        <mat-hint *ngIf="this.personal.get('panAndaadhar.aadharcardfilename').value !=''" style="color: green;" >&nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+        <mat-hint *ngIf="this.personal.get('panAndaadhar.aadharcardfiledata').value !=''" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+        <input type="file" accept="image/png,image/jpeg,application/pdf" formControlName="aadharcardfile" class="form-control" (change)="onselectFile1($event)" />
+        <mat-error *ngIf="this.personal.get('panAndaadhar.aadharcardfile').invalid" class="text-danger">{{errormsg}}</mat-error>
+
+      </div>
+
+     
+    </ng-container>
+  </div>
+  </mat-card>
+      
+    
+    
+      <div class=" text-center">
+        <button mat-fab color="primary" type="button" [disabled]="true" class="btn btn-primary"> <mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+        <button mat-fab color="primary" type="submit" class="btn btn-primary" [disabled]="!personal.valid" ><mat-icon> navigate_next </mat-icon></button>
+    </div>
+    </form>
+  </mat-card>
+</div>

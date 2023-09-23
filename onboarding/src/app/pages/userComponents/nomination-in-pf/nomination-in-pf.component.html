@@ -1,0 +1,1037 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="padding: 0px;">
+    <mat-card>
+        <form [formGroup]="nomination" (ngSubmit)="Submit()">
+            <div class="text-center">
+                <h2><b>NOMINATION AND DECLARATION FORM FOR UNEXEMPTED/EXEMPTED ESTABLISHMENTS</b></h2> 
+                <p>Declaration and Nomination Form under the Employees Provident Funds and Employees Pension Schemes</p>
+                <p>(Paragraph 33 and 61 (1) of the Employees Provident Fund Scheme 1952 and Paragraph 18 of the Employees</p>
+                <p>Pension Scheme 1995)</p>
+            </div>
+            <div>
+                <ol>
+                    <li>
+                       1. Name (IN BLOCK LETTERS) <input class="input-border field" formControlName="name" type="text"><input class="input-border field" formControlName="fathername" type="text"><input class="input-border field" formControlName="surname" type="text"><br>
+                        <span style="margin-left: 15%;">Name</span>
+                        <span style="margin-left: 23%;">Father’s / Husband’s Name </span>
+                        <span style="margin-left: 18%;">Surname</span>
+                    </li>
+                    <div class="row">
+    
+                        <div class="col-md-3">
+                            <li>2. Date of Birth :
+                                <!-- <input class=" input-border" formControlName="dob" type="text"> -->
+                                <input  class=" input-border" formControlName="dob" [matDatepicker]="picker">
+                                  <mat-datepicker #picker></mat-datepicker>
+                            </li>
+                        </div>
+                        <div class="col-md-9">
+                            <li >3. Account No. :
+                                <input class=" input-border" formControlName="accountno" type="text">
+                            </li>
+                        </div>
+                    </div>
+                    <div class="row">
+    
+                        <div class="col-md-3">
+                            <li>4. *Sex : MALE/FEMALE :
+                                <input class=" input-border" formControlName="sex" type="text">
+                            </li>
+                        </div>
+                        <div class="col-md-9">
+                            <li > 5. Marital Status :
+                                <input class=" input-border" formControlName="marital" type="text">
+                            </li>
+                        </div>
+                    </div>
+                    <li>
+                        6. Address Permanent / Temporary : 
+                        <input class=" input-border field" formControlName="address" type="text">
+                    </li>
+                </ol>
+            </div>
+
+            <div class="text-center">
+                <p><b>PART – A (EPF)</b></p>
+                <p>I hereby nominate the person(s)/cancel the nomination made by me previously and nominate the person(s) mentioned below
+                    to receive the amount standing to my credit in the Employees Provident Fund, in the event of my death
+                </p>
+            </div>
+            <div style="margin-left:32px ;" class="table-responsive">
+                <table  class="table text-center">
+                   <tr>
+                    
+                    <th>Name of the Nominee (s)</th>
+                    <th>Address</th>
+                    <th>Nominee’s relationship with the member</th>
+                    <th>Date of Birth</th>
+                    <th>Total amount or share of accumulations in Provident Funds to be paid to each nominee</th>
+                    <th>If the nominee is minor name and address of the guardian who may receive the amount during the minority of the nominee</th>
+                   </tr>
+                
+                <tr style="height: 60px;">
+                   
+                    
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                   
+                </tr>
+                <tr>
+                 
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c1" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r2c1"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"    
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c2" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r2c2"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c3" type="text"> -->
+                        <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r2c3"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field> -->
+                          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                            <mat-select  name="relation" formControlName="r2c3">
+                                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c4" type="text"> -->
+                        <!-- <input  class=" no-border text-center" formControlName="r2c4" [matDatepicker]="picker1">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                          <mat-datepicker #picker1></mat-datepicker> -->
+                          <mat-form-field appearance="outline" class="no-border field1">
+                            <input matInput formControlName="r2c4"  [matDatepicker]="picker1">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                 <mat-datepicker #picker1></mat-datepicker>  
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c5" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r2c5"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      (keypress)="_keyPress($event)" maxlength="3"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r2c6" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r2c6"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                  
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c1" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r3c1"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c2" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r3c2"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c3" type="text"> -->
+                        <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r3c3"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field> -->
+                          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                            <mat-select  name="relation" formControlName="r3c3">
+                                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c4" type="text"> -->
+                        <!-- <input  class=" no-border text-center" formControlName="r3c4" [matDatepicker]="picker2">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                          <mat-datepicker #picker2></mat-datepicker> -->
+                          <mat-form-field appearance="outline" class="no-border field1">
+                            <input matInput formControlName="r3c4"  [matDatepicker]="picker2">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                 <mat-datepicker #picker2></mat-datepicker>  
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c5" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r3c5"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      (keypress)="_keyPress($event)" maxlength="3"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r3c6" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r3c6"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                   
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c1" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r4c1"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c2" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r4c2"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c3" type="text"> -->
+                        <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r4c3"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field> -->
+                          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                            <mat-select  name="relation" formControlName="r4c3">
+                                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c4" type="text"> -->
+                        <!-- <input  class=" no-border text-center" formControlName="r4c4" [matDatepicker]="picker3">
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                          <mat-datepicker #picker3></mat-datepicker> -->
+                          <mat-form-field appearance="outline" class="no-border field1">
+                            <input matInput formControlName="r4c4"  [matDatepicker]="picker3">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                 <mat-datepicker #picker3></mat-datepicker>  
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c5" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r4c5"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      (keypress)="_keyPress($event)" maxlength="3"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r4c6" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r4c6"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                   
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c1" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r5c1"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c2" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r5c2"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c3" type="text"> -->
+                        <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r5c3"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field> -->
+                          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                            <mat-select  name="relation" formControlName="r5c3">
+                                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c4" type="text"> -->
+                        <!-- <input  class=" no-border text-center" formControlName="r5c4" [matDatepicker]="picker4">
+                        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                          <mat-datepicker #picker4></mat-datepicker> -->
+                          <mat-form-field appearance="outline" class="no-border field1">
+                            <input matInput formControlName="r5c4"  [matDatepicker]="picker4">
+                            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                 <mat-datepicker #picker4></mat-datepicker>  
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c5" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r5c5"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      (keypress)="_keyPress($event)" maxlength="3"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r5c6" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r5c6"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+              
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c1" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r6c1"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c2" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r6c2"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c3" type="text"> -->
+                        <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r6c3"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field> -->
+                          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                            <mat-select  name="relation" formControlName="r6c3">
+                                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c4" type="text"> -->
+                        <!-- <input  class=" no-border text-center" formControlName="r6c4" [matDatepicker]="picker5">
+                        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                          <mat-datepicker #picker5></mat-datepicker> -->
+                          <mat-form-field appearance="outline" class="no-border field1">
+                            <input matInput formControlName="r6c4"  [matDatepicker]="picker5">
+                            <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                 <mat-datepicker #picker5></mat-datepicker>  
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c5" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r6c5"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      (keypress)="_keyPress($event)" maxlength="3"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                    <td>
+                        <!-- <input class="no-border field1" formControlName="r6c6" type="text"> -->
+                        <mat-form-field appearance="outline"  class="no-border field1">
+                            <textarea matInput formControlName="r6c6"
+                                      cdkTextareaAutosize
+                                      #autosize="cdkTextareaAutosize"
+                                      cdkAutosizeMinRows="1"
+                                      cdkAutosizeMaxRows="5"></textarea>
+                          </mat-form-field>
+                    </td>
+                </tr>
+          
+                 </table>
+                </div>
+                <br>
+                <ul>
+                    <li>1 *Certified that I have no family as defined in para 2 (g) of the Employees Provident Fund Scheme 1952 and should I
+                        acquire a family hereafter the above nomination should be deemed as cancelled</li>
+                    <li>2. * Certified that my father/mother is/are dependent upon me.</li>
+                 <br><br>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <li>Strike out whichever is not applicable
+                        
+                            </li>
+                        </div>
+                        <div class="col-md-3">
+                            <li ><img class="mx-auto d-block" [src]="url" width="120" height="100" alt="img"></li>
+                            <li >Signature/or thumb impression
+                                of the subscriber
+                                
+                            </li>
+                        </div>
+                    </div>
+                </ul>
+
+                <div class="text-center">
+                    <p><b>PART – (EPS)</b></p>
+                    <p>Para 18</p>
+                 
+                </div>
+                <div style="margin-left:32px ;" class="table-responsive">
+                    <p>I hereby furnish below particulars of the members of my family who would be eligible to receive Widow/Children Pension in the
+                        event of my premature death in service</p>
+                    <table  class="table text-center">
+                       <tr>
+                        
+                        <th>Sr. No</th>
+                        <th>Name & Address of the Family Member</th>
+                        <th>Age</th>
+                        <th>Relationship with the member</th>
+                       </tr>
+                    
+                    <tr style="height: 60px;">
+                
+                        <td>(1)</td>
+                        <td>(2)</td>
+                        <td>(3)</td>
+                        <td>(4)</td>
+                       
+                       
+                    </tr>
+                    <tr>
+                 
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r2c1" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r2c1"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r2c2" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r2c2"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r2c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r2c3"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          (keypress)="_keyPress($event)" maxlength="3"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r2c4" type="text"> -->
+                            <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r2c4"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field> -->
+                              <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                <mat-select  name="relation" formControlName="t1r2c4">
+                                    <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </td>
+
+                    </tr>
+                    <tr>
+                      
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r3c1" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r3c1"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r3c2" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r3c2"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r3c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r3c3"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          (keypress)="_keyPress($event)" maxlength="3"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r3c4" type="text"> -->
+                            <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r3c4"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field> -->
+                              <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                <mat-select  name="relation" formControlName="t1r3c4">
+                                    <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                       
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r4c1" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r4c1"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r4c2" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r4c2"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r4c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r4c3"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          (keypress)="_keyPress($event)" maxlength="3"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r4c4" type="text"> -->
+                            <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r4c4"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field> -->
+                              <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                <mat-select  name="relation" formControlName="t1r4c4">
+                                    <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                       
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r5c1" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r5c1"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r5c2" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r5c2"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r5c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r5c3"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          (keypress)="_keyPress($event)" maxlength="3"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r5c4" type="text"> -->
+                            <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r5c4"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field> -->
+                              <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                <mat-select  name="relation" formControlName="t1r5c4">
+                                    <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </td>
+                       
+                    </tr>
+                    <tr>
+                  
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r6c1" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r6c1"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r6c2" type="text"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r6c2"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r6c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+                            <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r6c3"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          (keypress)="_keyPress($event)" maxlength="3"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field>
+                        </td>
+                        <td>
+                            <!-- <input class="no-border field1" formControlName="t1r6c4" type="text"> -->
+                            <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                <textarea matInput formControlName="t1r6c4"
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"></textarea>
+                              </mat-form-field> -->
+                              <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                <mat-select  name="relation" formControlName="t1r6c4">
+                                    <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </td>
+                       
+                    </tr>
+          
+                     </table>
+                    </div>
+                    <br>
+                    <ul>
+                        <li>Certified that I have no family as defined in para 2 (vii) of the Employees’s Family Pension Scheme 1995 and should I acquire a
+                            family hereafter I shall furnish Particulars there on in the above form</li>
+                            <br>
+                            <li>I hereby nominate the following person for receiving the monthly widow pension (admissible under para 16 2 (a) (i) & (ii) in the
+                                event of my death without leaving any eligible family member for receiving pension.</li>
+                    </ul>
+
+                    <div style="margin-left:32px ;" class="table-responsive">
+                        <table  class="table text-center">
+                           <tr>
+                            
+                            <th>Name and Address of the nominee</th>
+                            <th>Date of Birth</th>
+                            <th>Relationship with member</th>
+                           </tr>
+                        <tr>
+                         
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r1c1" type="text"> -->
+                                <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r1c1"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r1c2" type="text"> -->
+                                <!-- <input  class=" no-border text-center" formControlName="t2r1c2" [matDatepicker]="picker6">
+                                <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                                <mat-datepicker #picker6></mat-datepicker> -->
+                                <mat-form-field appearance="outline" class="no-border field1">
+                                    <input matInput formControlName="t2r1c2"  [matDatepicker]="picker6">
+                                    <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker6></mat-datepicker>  
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r1c3" type="text"> -->
+                                <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r1c3"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field> -->
+                                  <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                    <mat-select  name="relation" formControlName="t2r1c3">
+                                        <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                          
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r2c1" type="text"> -->
+                                <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r2c1"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r2c2" type="text"> -->
+                                <!-- <input  class=" no-border text-center" formControlName="t2r2c2" [matDatepicker]="picker7">
+                                <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                                <mat-datepicker #picker7></mat-datepicker> -->
+                                <mat-form-field appearance="outline" class="no-border field1">
+                                    <input matInput formControlName="t2r2c2"  [matDatepicker]="picker7">
+                                    <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker7></mat-datepicker>  
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r2c3" type="text"> -->
+                                <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r2c3"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field> -->
+                                  <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                    <mat-select  name="relation" formControlName="t2r2c3">
+                                        <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </td>
+                          
+                        </tr>
+                        <tr>
+                           
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r3c1" type="text"> -->
+                                <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r3c1"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r3c2" type="text"> -->
+                                <!-- <input  class=" no-border text-center" formControlName="t2r3c2" [matDatepicker]="picker8">
+                                <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
+                                <mat-datepicker #picker8></mat-datepicker> -->
+                                <mat-form-field appearance="outline" class="no-border field1">
+                                    <input matInput formControlName="t2r3c2"  [matDatepicker]="picker8">
+                                    <mat-datepicker-toggle matSuffix [for]="picker8"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker8></mat-datepicker>  
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r3c3" type="text"> -->
+                                <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r3c3"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field> -->
+                                  <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                    <mat-select  name="relation" formControlName="t2r3c3">
+                                        <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                           
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r4c1" type="text"> -->
+                                <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r4c1"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r4c2" type="text"> -->
+                                <!-- <input  class=" no-border text-center" formControlName="t2r4c2" [matDatepicker]="picker9">
+                                <mat-datepicker-toggle matSuffix [for]="picker9"></mat-datepicker-toggle>
+                                <mat-datepicker #picker9></mat-datepicker> -->
+                                <mat-form-field appearance="outline" class="no-border field1">
+                                    <input matInput formControlName="t2r4c2"  [matDatepicker]="picker9">
+                                    <mat-datepicker-toggle matSuffix [for]="picker9"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker9></mat-datepicker>  
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r4c3" type="text"> -->
+                                <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r4c3"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field> -->
+                                  <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                    <mat-select  name="relation" formControlName="t2r4c3">
+                                        <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                      
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r5c1" type="text"> -->
+                                <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r5c1"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r5c2" type="text"> -->
+                                <!-- <input  class=" no-border text-center" formControlName="t2r5c2" [matDatepicker]="picker10">
+                                <mat-datepicker-toggle matSuffix [for]="picker10"></mat-datepicker-toggle>
+                                <mat-datepicker #picker10></mat-datepicker> -->
+                                <mat-form-field appearance="outline" class="no-border field1">
+                                    <input matInput formControlName="t2r5c2"  [matDatepicker]="picker10">
+                                    <mat-datepicker-toggle matSuffix [for]="picker10"></mat-datepicker-toggle>
+                                         <mat-datepicker #picker10></mat-datepicker>  
+                                  </mat-form-field>
+                            </td>
+                            <td>
+                                <!-- <input class="no-border field1" formControlName="t2r5c3" type="text"> -->
+                                <!-- <mat-form-field appearance="outline"  class="no-border field1">
+                                    <textarea matInput formControlName="t2r5c3"
+                                              cdkTextareaAutosize
+                                              #autosize="cdkTextareaAutosize"
+                                              cdkAutosizeMinRows="1"
+                                              cdkAutosizeMaxRows="5"></textarea>
+                                  </mat-form-field> -->
+                                  <mat-form-field floatLabel="never" appearance="outline"  class="no-border field1">
+                                    <mat-select  name="relation" formControlName="t2r5c3">
+                                        <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                            </td>
+                          
+                        </tr>
+
+                         </table>
+                        </div>
+                        <br>
+                        <ul>
+                           
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <li>Date 
+                                <!-- <input class="input-border" formControlName="date" type="date"> -->
+                                <input  class=" input-border" formControlName="date" [matDatepicker]="picker13">
+                                <mat-datepicker #picker13></mat-datepicker>
+                                    </li>
+                                </div>
+                                <div class="col-md-3">
+                                    <br><br><br>
+                                    <li><img class="mx-auto d-block" [src]="url" width="120" height="100" alt="img"></li>
+                                    <li>Signature or thumb impression
+                                        of the subscriber
+                                        
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                        <hr>
+                        <div class="text-center">
+                            <p><b>CERTIFICATE BY EMPLOYER</b></p>
+                           
+                        </div>
+                        <p>Certified that the above declaration and nomination has been signed / thumb impressed before me by Shri / Smt./
+                            Miss <input  class="input-border" formControlName="name1" type="text"> employed in my establishment after he/she has
+                            read the entries / the entries have been read over to him/her by me and got confirmed by him/her.</p>
+
+                        <br><br><br>
+                        <br><br>
+                        <ul>
+                           
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <li>Date 
+                                <!-- <input class="input-border" formControlName="date1" type="text"> -->
+                                <input  class=" input-border" formControlName="date1" [matDatepicker]="picker11">
+                                <mat-datepicker #picker11></mat-datepicker>
+                                    </li>
+                                </div>
+                                <div class="col-md-3">
+                                    
+                                    <li>Signature of the employer or other authorised officer of the
+                                        establishment 
+                                    </li>
+                                </div>
+                            </div>
+                            <br><br>
+                            <br><br>
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <li>Name & address of the Factory /Establishment 
+                                
+                                    </li>
+                                </div>
+                                <div class="col-md-3">
+                                    
+                                    <li>Place :  <input class="input-border" formControlName="place" type="text"></li>
+                                    <li>Date :  
+                                        <!-- <input class="input-border" formControlName="date2" type="text"> -->
+                                        <input  class=" input-border" formControlName="date2" [matDatepicker]="picker12">
+                                        <mat-datepicker #picker12></mat-datepicker>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+
+                        <div class=" text-center">
+                            <button mat-fab color="primary" routerLink="/user-dashboard/insurance" type="button" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+                            <button mat-fab color="primary" type="submit" class="btn btn-primary" [disabled]="!nomination.valid"><mat-icon> navigate_next </mat-icon></button>
+                         </div>
+
+            </form>    
+    </mat-card>
+    </div>
+</div>

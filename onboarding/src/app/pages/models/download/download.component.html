@@ -1,0 +1,350 @@
+<section class="example-section">
+    <span class="example-list-section">
+      <mat-checkbox class="example-margin" style="font-size: 14px ;"
+                    [checked]="allComplete"
+                    [color]="task.color"
+                    [indeterminate]="someComplete()"
+                    (change)="setAll($event.checked)">
+        {{task.name}}
+      </mat-checkbox>
+    </span>
+    <span class="example-list-section">
+      <ul>
+        <li *ngFor="let subtask of task.subtasks">
+          <mat-checkbox [(ngModel)]="subtask.completed" style="float:left;min-width: 400px;  font-size: 14px ;"
+                        [color]="subtask.color"
+                        [checked]="isChecked"
+                        (ngModelChange)="updateAllComplete()">
+            {{subtask.name}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+  </section>
+ 
+  <!-- {{task | json}} -->
+ <div style="clear: both; text-align: center; ">
+  <br>
+  <button  type="button"  printSectionId= "print" class="btn btn-primary" [useExistingCss]="true" ngxPrint><i class="fa fa-print"> Print</i></button> 
+ </div>
+
+  <div id="print" style="display: none;"> 
+    <!--Your html stuff that you want to print-->
+    <div *ngIf ="task.subtasks[0].name == 'Personal Details' && task.subtasks[0].completed == true" >
+      <table class="table" >
+        <tr>
+          <th colspan="4">Personal Details</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td>{{PersonalDetails.title}} {{ PersonalDetails.firstname}} {{ PersonalDetails.middlename}} {{ PersonalDetails.lastname}}</td>
+          <th>Gender</th>
+          <td>{{PersonalDetails.gender}}</td> 
+        </tr>
+
+        <tr>
+          <th>Date Of Birth</th>
+          <td>{{PersonalDetails.dob | date: 'dd/MM/yyyy'}}</td>  
+          <th>Caste</th>
+          <td>{{PersonalDetails.caste}}</td>  
+        </tr>
+
+        <tr>
+          <th>Nationality</th>
+          <td>{{PersonalDetails.nationality}}</td>  
+          <th>Language</th>
+          <td>{{PersonalDetails.language}}</td>  
+        </tr>
+      
+        <tr>
+          <th>Marital Status</th>
+          <td>{{PersonalDetails.maritalstatus}}</td>  
+          <th>Marriage Date</th>
+          <td>{{PersonalDetails.marriagedate | date: 'dd/MM/yyyy'}}</td>  
+        </tr>
+
+       
+        <tr>
+          <th>Religion</th>
+          <td>{{PersonalDetails.religion}}</td>  
+          <th>Email</th>
+          <td>{{PersonalDetails.email}}</td>  
+        </tr>
+       
+        <tr>
+          <th>Contact</th>
+          <td>{{PersonalDetails.contact}}</td>  
+          <th>Ex-servicemen</th>
+          <td>{{PersonalDetails.exservicemen}}</td>  
+        </tr>
+
+      </table>
+      
+      <table class="table" >
+        <tr>
+          <th colspan="4">Permanent Address Details</th>
+        </tr>
+        <tr>
+          <th>houseNo</th>
+          <td>{{PersonalDetails.permanentaddress.houseNo}}</td>  
+          <th>location</th>
+          <td>{{PersonalDetails.permanentaddress.location}}</td>  
+        </tr>
+
+        <tr>
+          <th>country</th>
+          <td>{{PersonalDetails.permanentaddress.country}}</td>  
+          <th>state</th>
+          <td>{{PersonalDetails.permanentaddress.state}}</td>  
+        </tr>
+      
+        <tr>
+          <th>district</th>
+          <td>{{PersonalDetails.permanentaddress.district}}</td>  
+          <th>city</th>
+          <td>{{PersonalDetails.permanentaddress.city}}</td>  
+        </tr>
+
+       
+        <tr>
+          <th>postalCode</th>
+          <td>{{PersonalDetails.permanentaddress.postalCode}}</td>  
+          <td></td>
+          <td></td>  
+        </tr>
+      </table>
+
+      <table class="table" >
+        <tr>
+          <th colspan="4">Current Address Details</th>
+        </tr>
+        <tr>
+          <th>houseNo</th>
+          <td>{{PersonalDetails.currentaddress.chouseNo}}</td>  
+          <th>location</th>
+          <td>{{PersonalDetails.currentaddress.clocation}}</td>  
+        </tr>
+
+        <tr>
+          <th>country</th>
+          <td>{{PersonalDetails.currentaddress.ccountry}}</td>  
+          <th>state</th>
+          <td>{{PersonalDetails.currentaddress.cstate}}</td>  
+        </tr>
+      
+        <tr>
+          <th>district</th>
+          <td>{{PersonalDetails.currentaddress.cdistrict}}</td>  
+          <th>city</th>
+          <td>{{PersonalDetails.currentaddress.ccity}}</td>  
+        </tr>
+
+       
+        <tr>
+          <th>postalCode</th>
+          <td>{{PersonalDetails.currentaddress.cpostalCode}}</td>  
+          <td></td>
+          <td></td>  
+        </tr>
+      </table>
+
+      <table class="table" >
+        <tr>
+          <th colspan="4">Passport Details</th>
+        </tr>
+        <tr>
+          <th>Passport Number</th>
+          <td>{{PersonalDetails.passportDetails.passportNumber}}</td>  
+          <th>Place of Issue</th>
+          <td>{{PersonalDetails.passportDetails.placeofissue }}</td>  
+        </tr>
+
+        <tr>
+          <th>Issuing Authority</th>
+          <td>{{PersonalDetails.passportDetails.issuingauth }}</td>  
+          <th>Date Of Issue</th>
+          <td>{{PersonalDetails.passportDetails.dateofissue | date: 'dd/MM/yyyy' }}</td>  
+        </tr>
+      
+        <tr>
+          <th>Date Of Expiry</th>
+          <td>{{PersonalDetails.passportDetails.dateofexpiry | date: 'dd/MM/yyyy' }}</td>  
+          <th>Visible Distinguishing Mark</th>
+          <td>{{PersonalDetails.passportDetails.visibledismark }}</td>  
+        </tr>
+
+       
+        <tr>
+          <th>House/Flat Number</th>
+          <td>{{PersonalDetails.passportDetails.phouseNo }}</td>  
+          <th>Area/Location/street</th>
+          <td>{{PersonalDetails.passportDetails.parea }}</td>  
+        </tr>
+        <tr>
+          <th>City</th>
+          <td>{{PersonalDetails.passportDetails.pcity }}</td>  
+          <th>State</th>
+          <td>{{PersonalDetails.passportDetails.pstate }}</td>  
+        </tr>
+        <tr>
+          <th>District</th>
+          <td>{{PersonalDetails.passportDetails.pdistrict }}</td>  
+          <th>Postal Code</th>
+          <td>{{PersonalDetails.passportDetails.ppostalcode }}</td>  
+        </tr>
+      </table>
+
+      <table class="table" >
+        <tr>
+          <th colspan="4">Pan Card  & Adhar Card Details</th>
+        </tr>
+        <tr>
+          <th>Pan Card Number</th>
+          <td>{{PersonalDetails.panAndaadhar.panNumber}}</td>  
+          <th>Aadhar Card Number</th>
+          <td>{{PersonalDetails.panAndaadhar.aadharNumber}}</td>  
+        </tr>
+      </table>
+
+    </div>
+
+    <div *ngIf ="task.subtasks[1].name == 'Bank Details' && task.subtasks[1].completed == true" >
+      <table class="table" >
+        <tr>
+          <th colspan="5">Bank Details</th>
+        </tr>
+        
+        <tr>
+          <th>Bank Name </th>
+          <th>Bank Account No</th>
+          <th>Branch Name</th>
+          <th>IFSC code</th>
+          <th>Bank Address</th>
+        </tr>
+
+        <tr *ngFor="let bank of BankDetails.extras">
+          <td>{{bank.bankname }}</td>  
+          <td>{{bank.bankaccountno }}</td>  
+          <td>{{bank.branchname}}</td>  
+          <td>{{bank.ifsccode }}</td>  
+          <td>{{bank.bankaddress }}</td>  
+        </tr>
+      
+      </table>
+    </div>
+
+    <div *ngIf ="task.subtasks[2].name == 'Education Details' && task.subtasks[2].completed == true"  >
+      <table class="table" >
+        <tr>
+          <th colspan="8">Education Details</th>
+        </tr>
+        <tr>
+          <th>Course </th>
+          <th>Branch</th>  
+          <th>School/Institute</th>
+          <th>Board/university</th>  
+          <th>From Date</th>
+          <th>To Date</th>
+          <th> No Of Years</th>
+          <th>%age/CGPA</th>
+        </tr>
+
+        <tr *ngFor="let education of EducationDetails.extras">
+          <td>{{education.course}}</td>
+          <td>{{education.branch}}</td>  
+          <td>{{education.school_Institute}}</td>
+          <td>{{education.board_university}}</td>  
+          <td>{{education.fromDate | date: 'dd/MM/yyyy'}}</td>
+          <td>{{education.toDate | date: 'dd/MM/yyyy'}}</td>  
+          <td>{{education.noOfYears}}</td>
+          <td>{{education.cgpa}}</td> 
+        </tr>
+      
+      </table>
+  </div>
+
+  <div *ngIf ="task.subtasks[3].name == 'Family Details' && task.subtasks[3].completed == true"  >
+    <table class="table" >
+      <tr>
+        <th colspan="6">Family Details</th>
+      </tr>
+      <tr>
+        <th>Last Name </th>
+        <th>First Name </th>  
+        <th>Relation</th>
+        <th>Date Of Birth</th>  
+        <th>Gender</th>
+      </tr>
+
+      <tr *ngFor="let family of FamilyDetails.extras">
+        <td>{{family.lastname}}</td>
+        <td>{{family.firstname}}</td>   
+        <td>{{family.relation}}</td>
+        <td>{{family.dob | date: 'dd/MM/yyyy'}}</td>  
+        <td>{{family.gender}}</td>
+      </tr>
+    
+    </table>
+</div>
+
+<div *ngIf ="task.subtasks[4].name == 'Experience Details' && task.subtasks[4].completed == true"  >
+  <table class="table" >
+    <tr>
+      <th colspan="8">Experience Details</th>
+    </tr>
+    <tr>
+      <th>Employer </th>
+      <th>Place</th>  
+      <th>Industry</th>
+      <th>Designation</th>  
+      <th>From Date</th>
+      <th>To Date</th>
+      <th>Experience in years</th>
+    </tr>
+
+    <tr *ngFor="let experience of ExperienceDetails.extras">
+      <td>{{experience.employer}}</td>
+      <td>{{experience.place}}</td>
+      <td>{{experience.industry}}</td>  
+      <td>{{experience.designation}}</td>
+      <td>{{experience.fromDate | date: 'dd/MM/yyyy'}}</td>
+      <td>{{experience.toDate | date: 'dd/MM/yyyy'}}</td>  
+      <td>{{experience.experience}}</td>
+   
+    </tr>
+  
+  </table>
+</div>
+
+<div *ngIf ="task.subtasks[5].name == 'Provident Fund' && task.subtasks[5].completed == true"  >
+
+ 
+<app-pfform-download [id]="userId" ></app-pfform-download>
+
+</div>
+
+<div *ngIf ="task.subtasks[6].name == 'Gratuity' && task.subtasks[6].completed == true"  >
+ <app-gratuity-download [id]="userId"></app-gratuity-download>
+</div>
+
+<div *ngIf ="task.subtasks[7].name == 'EMPLOYEE CONFIDENTIALITY AGREEMENT' && task.subtasks[7].completed == true"  >
+<app-employee-confidential-agreement-download [id]="userId"></app-employee-confidential-agreement-download>
+</div>
+
+<div *ngIf ="task.subtasks[8].name == 'ZFHL GROUP MEDICLAIM' && task.subtasks[8].completed == true"  >
+ <app-group-mediclaim-download [id]="userId"></app-group-mediclaim-download>
+</div>
+
+<div *ngIf ="task.subtasks[9].name == 'Declaration and Nomination Form' && task.subtasks[9].completed == true"  >
+ 
+  <app-nomination-in-pf-download [id]="userId"></app-nomination-in-pf-download>
+ 
+ </div>
+
+ <div *ngIf ="task.subtasks[10].name == 'Group Personal Accident Insurance' && task.subtasks[10].completed == true"  >
+ <app-group-teram-insurance-download [id]="userId"></app-group-teram-insurance-download>
+ </div>
+    
+  </div>
+
+<button type="button" class="btn btn-primary" (click)="download()"> <i class="fa fa-download"> Download Files</i></button>

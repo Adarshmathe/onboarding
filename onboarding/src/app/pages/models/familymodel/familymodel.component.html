@@ -1,0 +1,60 @@
+<div  class="row">
+    <div  class="col-11">
+      <mat-slide-toggle color="primary" [(ngModel)]="checkbox" [disabled]="disable"><h2>{{data.title+" Family Details"}}</h2></mat-slide-toggle>
+
+    </div>
+    <div class="col-1"><button class="btn"  type="button" mat-dialog-close>&times;</button>
+</div>
+   
+      <!-- <p>{{education.value | json}}</p> -->
+
+      <div class="container-fluid">
+        <mat-dialog-content class="mat-typography">
+
+          <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+            <!-- Position Column -->
+            <ng-container matColumnDef="lastname">
+              <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.lastname}} </mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="firstname">
+              <mat-header-cell *matHeaderCellDef> First Name</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.firstname}}</mat-cell>
+            </ng-container>
+    
+            <!-- Weight Column -->
+            <ng-container matColumnDef="relation">
+              <mat-header-cell *matHeaderCellDef> Relation</mat-header-cell>
+              <mat-cell *matCellDef="let element;" >{{element.relation}}</mat-cell>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="dob">
+              <mat-header-cell *matHeaderCellDef> Date Of Birth</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.dob | date: 'dd/MM/yyyy'}}</mat-cell>
+            </ng-container>
+    
+             <!-- Position Column -->
+             <ng-container matColumnDef="gender">
+              <mat-header-cell *matHeaderCellDef>Gender</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.gender}}</mat-cell>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <!-- <ng-container matColumnDef="insuranceamount">
+              <mat-header-cell *matHeaderCellDef>Insurance Cover Amount</mat-header-cell>
+              <mat-cell *matCellDef="let element;">{{element.insuranceamount}} </mat-cell>
+            </ng-container> -->
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+    
+        </mat-dialog-content>
+    </div>
+    <mat-dialog-actions align="end">
+      <button type="submit" mat-button [mat-dialog-close]="'success'"  (click)="updateformstatus()" mat-raised-button color="primary">Submit</button> 
+    </mat-dialog-actions>
+

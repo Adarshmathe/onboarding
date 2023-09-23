@@ -1,0 +1,99 @@
+<mat-card class="col-auto col-md-12 col-xl-12 px-sm-2">
+    <mat-action-list>
+      <!-- <div mat-subheader><strong>Menu</strong></div> -->
+      <!-- <mat-divider></mat-divider> -->
+      <button mat-list-item routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}"  routerLink="/user-dashboard" > <mat-icon mat-list-icon>person</mat-icon><strong>Personal Details</strong>
+      &nbsp; &nbsp;<img *ngIf="formStatusDetails.personal=='1' || formStatusDetails.personal=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button> 
+      <mat-divider></mat-divider>
+    
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/fdc" > <mat-icon mat-list-icon>group</mat-icon><strong>Family Details</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.family=='1' || formStatusDetails.family=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+      <mat-divider></mat-divider>
+
+      <button mat-list-item routerLinkActive="active-link" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" routerLink="/user-dashboard/education" > <mat-icon mat-list-icon>school</mat-icon><strong>Education Details</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.education=='1' || formStatusDetails.education=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/experience" > <mat-icon mat-list-icon>business </mat-icon><strong>Experience Details</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.experience=='1' || formStatusDetails.experience=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+      <mat-divider></mat-divider>
+
+     
+
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/bank" > <mat-icon mat-list-icon>account_balance</mat-icon><strong>Bank Details</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.bank=='1' || formStatusDetails.bank=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>  
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/pf" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Provident Fund</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.provident=='1' || formStatusDetails.provident=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button> 
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/gratuity" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Gratuity</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.gratuity=='1' || formStatusDetails.gratuity=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/eca" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Employee Confidentiality Agreement</strong>
+      &nbsp; &nbsp;<img *ngIf="formStatusDetails.employeeConfidentialityAgreement=='1' || formStatusDetails.employeeConfidentialityAgreement=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/mediclaim" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Group Mediclaim</strong>
+      &nbsp; &nbsp;<img *ngIf="formStatusDetails.groupMediclaim=='1' || formStatusDetails.groupMediclaim=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+      <mat-divider></mat-divider>
+<!-- <br> -->
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/insurance" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Group Term Insurance and Group Personal Accident Insurance</strong>
+        &nbsp; &nbsp;<img *ngIf="formStatusDetails.groupTermInsurance=='1' || formStatusDetails.groupTermInsurance=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>  
+      
+      <!-- <br> -->
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/nomination" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Nomination in PF</strong>
+      &nbsp; &nbsp;<img *ngIf="formStatusDetails.nominationinPF=='1' || formStatusDetails.nominationinPF=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>  
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/coc" > <mat-icon mat-list-icon>assignment</mat-icon><strong>Code Of Conduct</strong>
+      &nbsp; &nbsp;<img *ngIf="formStatusDetails.codeOfConduct=='1' || formStatusDetails.codeOfConduct=='2'" [src]="url" alt="" height="25px" width="25px">
+      </button>
+      <!-- <mat-divider></mat-divider> -->
+
+
+
+
+
+      <!-- <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/ecadownload" > <mat-icon mat-list-icon>account_circle</mat-icon>ecadownload</button>
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/mediclaimdownload" > <mat-icon mat-list-icon>account_circle</mat-icon>mediclaimdownload</button>
+      <mat-divider></mat-divider>
+      <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/insurancedownload" > <mat-icon mat-list-icon>account_circle</mat-icon>insurancedownload</button>
+      <mat-divider></mat-divider> -->
+      <!-- <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/nominationdownload" > <mat-icon mat-list-icon>account_circle</mat-icon>nominationdownload</button>
+      <mat-divider></mat-divider> -->
+      <mat-divider></mat-divider>
+    </mat-action-list>
+  </mat-card>
+  
+<!-- nouse -->
+ <!-- <mat-list class="collapse" id="collapseExample"> 
+        <mat-list-item>
+          <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/education/1" > <mat-icon mat-list-icon>account_circle</mat-icon>education1</button> 
+
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/education/2" > <mat-icon mat-list-icon>account_circle</mat-icon>education2</button> 
+
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <button mat-list-item routerLinkActive="active-link" routerLink="/user-dashboard/education/3" > <mat-icon mat-list-icon>account_circle</mat-icon>education3</button> 
+
+        </mat-list-item>
+      
+      </mat-list>
+      <mat-divider></mat-divider> -->

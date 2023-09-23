@@ -1,0 +1,80 @@
+/* input {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: black
+  }
+  input:focus {
+    border-color: black
+  } */
+  .field1{
+    width: 28%;
+}
+  .table{
+    width: 98%;
+    border-collapse: collapse;
+    /* display: block; */
+    /* overflow-x: scroll; */
+    /* white-space: nowrap; */
+    /* overflow-wrap: break-word; */
+}
+.table tr td{
+    /* padding: 12px; */
+    border: .5px solid black;
+}
+
+  .input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+    
+}
+hr{
+    border: 1px solid black !important;
+}
+input.ng-touched.ng-invalid{
+  border-bottom: 2px solid red !important;
+}
+
+.no-border{
+    border: none !important;
+}
+
+.field{
+    width: 99% !important;
+}
+/* .field1{
+    width: 87%;
+} */
+ul ,ol{
+    list-style-type: none;
+   }
+
+li{
+    margin-bottom: 10px;
+}
+
+th {
+    background-color: #2196F3 !important;
+    /* color: white !important; */
+    text-align: center !important;
+    padding: 12px;
+    border: .5px solid black;
+  }
+td{
+  width: max-content;
+}
+
+/* ::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled, ::ng-deep .mat-form-field-outline {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  }
+  ::ng-deep .mat-form-field-wrapper {
+      padding-bottom: 0 !important;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+   margin:  0 !important;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+      padding: 4px 8px 8px 8px !important;
+  } */

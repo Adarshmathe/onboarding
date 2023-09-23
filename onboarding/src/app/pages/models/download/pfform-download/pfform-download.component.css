@@ -1,0 +1,153 @@
+
+*{
+    font-size: 11px ;
+    margin: 0px !important;
+  
+}
+
+p{
+    margin: 0px !important;
+}
+
+/* .table>:not(caption)>*>* {
+    padding: 0px !important;
+} */
+
+.font1{
+    font-size: 13px !important;
+}
+.font2{
+    font-size: 12px !important;
+}
+
+.p{
+    padding: 0px !important;
+}
+.col-5{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table tr td{
+    padding: 0px 3px;
+    border: .5px solid black;
+  
+}
+.field{
+   
+    width: 100%; 
+}
+.field1{
+   
+    width: 70%; 
+    
+}
+
+.field3{
+    width: 12%; 
+}
+#flex-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+#flex-container > .flex-item {
+    flex: auto;
+  }
+.flex{
+    display: flex;
+}
+
+.border{
+    outline: 0;
+    border-width: 0 0 1px !important;
+    border-color: black !important;
+}
+
+.border1{
+    text-align: center !important; 
+    /* border:2px solid black !important;  */
+    border-top: 2px solid black !important; 
+    border-bottom: 2px solid black !important; 
+    border-right: 2px solid black !important; 
+    border-left: 2px solid black !important ; 
+    padding: 0px !important;
+
+}
+
+.no-border{
+    
+    border: none !important;
+}
+ul {
+   padding: 0px 0px 0px 20px !important;
+   }
+
+.none{
+    list-style-type: none;
+    margin: 0px !important;
+    /* padding: 0px !important; */
+}
+.inside{
+    list-style-position: inside;
+}
+
+   input[type=radio] {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    outline: none;
+    content: none;
+    margin-left: 1px;
+}
+
+input[type=radio]:before {
+    font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 8px;
+    color: transparent !important;
+    background: #fff;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    margin: 0px 15px;
+}
+
+input[type=radio]:checked:before {
+    color: black !important;
+}
+@page { margin: 10px; }
+
+
+@media print {
+    /* #print {page-break-before: always; page-break-after: always;} */
+  
+   button{
+    display: none;
+   }
+ }
+ 
+
+ .col {
+    display: inline-block;
+    border-right:1px solid black;
+    padding: 1px;
+  }
+  .box1 {
+    display: inline;
+    width: 240px;
+    height: 18px;
+    border: 1px solid black;
+    margin: 0;
+    display: flex;
+    padding: 0px !important;
+    text-align: center !important; 
+  }
+  .col:last-child {
+    border-right: none;
+  }

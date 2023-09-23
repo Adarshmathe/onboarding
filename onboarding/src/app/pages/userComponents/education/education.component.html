@@ -1,0 +1,132 @@
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Education Details</mat-card-title>
+      </mat-card-header>
+
+      <form [formGroup]="education" autocomplete="off"(ngSubmit)="save()">
+        <ng-container formArrayName="extras">
+
+      <mat-table [dataSource]="extras.controls" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="course">
+          <mat-header-cell *matHeaderCellDef> Course </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <mat-select placeholder="Select Course" name="natureofupsi" formControlName="course">
+                <mat-option *ngFor="let c of courses" [value]="c">{{c}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="branch">
+          <mat-header-cell *matHeaderCellDef> Branch/Subjects </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="Branch" formControlName="branch">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="school_Institute">
+          <mat-header-cell *matHeaderCellDef> School/Institute</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="School/Institute" formControlName="school_Institute">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="board_university">
+          <mat-header-cell *matHeaderCellDef> Board/university</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="Board/university" formControlName="board_university">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+         <!-- Position Column -->
+         <ng-container matColumnDef="fromDate">
+          <mat-header-cell *matHeaderCellDef>From Date</mat-header-cell>
+          <mat-cell *matCellDef="let element;let index = index;" [formGroup]="element">
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="fromDate"  [matDatepicker]="picker1" (dateChange)="dateChange(index)">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                   <mat-datepicker #picker1></mat-datepicker>  
+                   <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg1}}</mat-error>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="toDate">
+          <mat-header-cell *matHeaderCellDef>To Date</mat-header-cell>
+          <mat-cell *matCellDef="let element;let index = index;" [formGroup]="element">
+            <mat-form-field  appearance="outline">
+              <input matInput formControlName="toDate"  [matDatepicker]="picker" (dateChange)="dateChange(index)">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                   <mat-datepicker #picker></mat-datepicker>  
+                   <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg1}}</mat-error>
+
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="noOfYears">
+          <mat-header-cell *matHeaderCellDef> No Of Years</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="No Of Years" formControlName="noOfYears" readonly="true">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="cgpa">
+          <mat-header-cell *matHeaderCellDef> %age/CGPA</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="%age/CGPA" formControlName="cgpa" maxlength="6" (keypress)="_keyPress($event)" required>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="upload">
+          <mat-header-cell *matHeaderCellDef>Upload</mat-header-cell>
+          <mat-cell *matCellDef="let element; let index = index;" [formGroup]="element">
+            <input type="file"  accept="image/png,image/jpeg,application/pdf" formControlName="file" (change)="onselectFile($event,index)">
+            <mat-hint *ngIf="extras.at(index).get('filename').value !=''" style="color: green;" > &nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+            <mat-hint *ngIf="extras.at(index).get('filedata').value !=null" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+            <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let index = index;" >
+            <button type="button" [disabled]="disabled" (click)="removefield(index)" class="btn btn-outline-danger" *ngIf="extras.controls.length > 1" ><i class="fa fa-trash"></i></button>
+          </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+    </ng-container>
+    <br>
+    <button type="button" [disabled]="disabled" (click)="addfield()" class="btn btn-outline-primary"><i class="fa fa-plus"> Add</i></button>
+    <br>
+    <div class=" text-center">
+      <button mat-fab color="primary" type="button" routerLink="/user-dashboard/fdc" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+      <button mat-fab color="primary" type="submit" class="btn btn-primary" [disabled]="!education.valid"><mat-icon> navigate_next </mat-icon></button>
+  </div>
+  </form>
+    </mat-card>
+  </div>
+  

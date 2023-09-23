@@ -1,0 +1,117 @@
+
+<div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Bank Details</mat-card-title>
+      </mat-card-header>
+      <!-- <p>{{bank.value | json }}</p> -->
+
+      <form [formGroup]="bank" autocomplete="off"(ngSubmit)="Submit()">
+        <ng-container formArrayName="extras">
+
+      <mat-table [dataSource]="extras.controls" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="bankname">
+          <mat-header-cell *matHeaderCellDef> Bank Name </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline" >
+              <!-- <input matInput  placeholder="bankname" formControlName="bankname"> -->
+              <mat-select placeholder="Select Bank" name="bankname" formControlName="bankname" >
+                <mat-option  *ngFor="let c of banks" [value]="c">{{c}}</mat-option >
+              </mat-select>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="branchname">
+          <mat-header-cell *matHeaderCellDef> Branch Name </mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="branchname" formControlName="branchname" >
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="bankaccountno">
+          <mat-header-cell *matHeaderCellDef> Bank Account No</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="bankaccountno" formControlName="bankaccountno" (ngModelChange)="bankaccountchange()" >
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="confirmbankaccountno">
+          <mat-header-cell *matHeaderCellDef> Confirm Bank Account No</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input class="design" matInput type="text" placeholder="confirmbankaccountno" formControlName="confirmbankaccountno">
+              <mat-error class="text-danger" *ngIf="element.touched && element.invalid">Please Enter Correct Bank Account No.</mat-error>
+
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+   
+        <!-- Weight Column -->
+        <ng-container matColumnDef="ifsccode">
+          <mat-header-cell *matHeaderCellDef> IFSC code</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput placeholder="ifsccode" formControlName="ifsccode" (ngModelChange)="ifsccodechange()">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="confirmifsccode">
+          <mat-header-cell *matHeaderCellDef> Confirm IFSC Code</mat-header-cell>
+          <mat-cell *matCellDef="let element;" [formGroup]="element">
+            <mat-form-field floatLabel="never" appearance="outline">
+              <input matInput class="design"  type="text" placeholder="confirmifsccode" formControlName="confirmifsccode"><br>
+              <mat-error class="text-danger" *ngIf="element.touched && element.invalid">Please Enter Correct IFSC Code</mat-error>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+
+             <!-- Symbol Column -->
+             <ng-container matColumnDef="bankaddress">
+              <mat-header-cell *matHeaderCellDef> Bank Address</mat-header-cell>
+              <mat-cell *matCellDef="let element;" [formGroup]="element">
+                <mat-form-field floatLabel="never" appearance="outline">
+                  <input matInput placeholder="bankaddress" formControlName="bankaddress">
+                </mat-form-field>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="upload">
+              <mat-header-cell *matHeaderCellDef>Upload</mat-header-cell>
+              <mat-cell *matCellDef="let element; let index = index;" [formGroup]="element" >
+                <input type="file"  accept="image/png,image/jpeg,application/pdf" formControlName="file" (change)="onselectFile($event,index)">
+                <br>
+                <mat-hint style="color: blue;" >(Upload Passbook/Bank Statement/Cancel Cheque)</mat-hint>
+                <mat-hint *ngIf="extras.at(index).get('filename').value !=''" style="color: green;" > &nbsp;&nbsp;<b>Uploaded</b></mat-hint><br>
+                <mat-hint *ngIf="extras.at(index).get('filedata').value !=null" style="color: yellowgreen;" ><b>Selected</b></mat-hint>
+                <mat-error *ngIf="element.touched && element.invalid" class="text-danger">{{errormsg}}</mat-error>
+              </mat-cell>
+            </ng-container>
+
+      
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+     </ng-container>
+    <br>
+    <br>
+    <div class=" text-center">
+      <button mat-fab color="primary" type="button" routerLink="/user-dashboard/experience" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+      <button mat-fab color="primary" type="submit" [disabled]="!bank.valid" class="btn btn-primary"><mat-icon> navigate_next </mat-icon></button>
+  </div>
+  </form>
+    </mat-card>
+  </div>
+  

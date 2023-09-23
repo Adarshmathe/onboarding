@@ -1,0 +1,230 @@
+
+<div class="container-fluid" id="print">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="text-center">
+                <h1><b>FORM ‘F’</b></h1>
+               <p>(See sub-rule (1) of Rule 6)</p>
+               <h3><b><u>NOMINATION</u></b></h3>
+            </div>
+
+            <!-- <p>{{pf.value | json}}</p> -->
+
+<div>
+      <div style="margin-left: 31px;" > To &nbsp;&nbsp;<input class="field2 input-border" [value]="userdata.name3" type="text"></div>
+         <div class="text-center">(Give here name or description of the establishment with full address)</div>
+
+<ol type="1">
+    <li>1. &nbsp; I, Shri / Shrimati / Kumari 
+    <input class="field1 input-border" [value]="userdata.name" type="text">
+    <div class="text-center">(Name in full here)</div>
+    </li>
+    <li>&nbsp;&nbsp;&nbsp; whose particulars are given in the statement below, hereby nominate the person(s) mentioned below receive the gratuity payable after my death as also the gratuity standing to my credit in the event of death before that amount has become payable, or having become payable has not been paid and direct that the said amount of gratuity shall be paid in proportion indicated against the name(s) of the nominee(s).
+    </li>
+
+    <li>2. &nbsp;I hereby certify that the person(s) mentioned is a/are member/s of my family within the meaning clause (h) of section (2) of the payment of Gratuity Act, 1972.</li>
+
+    <li>3. &nbsp;I hereby declare that I have no family within the meaning of clause (h) of section (2) of the said Act.</li>
+    <li>4. &nbsp;(a) My father/mother/parents is/are not dependant on me. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) My husband’s father/mother/parents is/are not dependant on my husband.
+    </li>
+    <li>5. &nbsp;I have excluded my husband from my family by a notice dated &nbsp;<input class="input-border" [value]="userdata.name1 | date: 'dd/MM/yyyy'" type="text">&nbsp; to the controlling authority in terms of the provision to clause (h) of section (2) of the said Act.</li>
+    <li>6.&nbsp;Nomination made herein validates my previous nomination.</li>
+</ol>
+
+<div class="text-center">
+    <p><b>Nominee(s)</b></p>
+</div>
+
+<div style="margin-left:32px ;">
+<table  class="table">
+   <tr>
+    <th>Name in full with full address of nominee(s)</th>
+    <th>Relationship with the employee</th>
+    <th>Age of nominee</th>
+    <th>Proportion by which the gratuity will be shared</th>
+   </tr>
+
+<tr>
+    <!-- <td><input class="no-border field" [value]="userdata.r1c1" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c2" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c3" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r1c4" type="text"></td> -->
+    <td>{{userdata.r1c1}}</td>
+    <td>{{userdata.r1c2}}</td>
+    <td>{{userdata.r1c3}}</td>
+    <td>{{userdata.r1c4}}</td>
+</tr>
+<tr>
+    <!-- <td><input class="no-border field" [value]="userdata.r2c1" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c2" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c3" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r2c4" type="text"></td> -->
+    <td>{{userdata.r2c1}}</td>
+    <td>{{userdata.r2c2 | date: 'dd/MM/yyyy'}}</td>
+    <td>{{userdata.r2c3}}</td>
+    <td>{{userdata.r2c4}}</td>
+</tr>
+<tr>
+    <!-- <td><input class="no-border field" [value]="userdata.r3c1" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c2" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c3" type="text"></td>
+    <td><input class="no-border field" [value]="userdata.r3c4" type="text"></td> -->
+    <td>{{userdata.r3c1}}</td>
+    <td>{{userdata.r3c2}}</td>
+    <td>{{userdata.r3c3}}</td>
+    <td>{{userdata.r3c4}}</td>
+</tr>
+ </table>
+</div>
+
+<div class="text-center">
+    <p><b><u>Statement</u></b></p>
+</div>
+
+<ul>
+    <li>1.	Name of employee in full :
+        <input class=" input-border"   [value]="userdata.nameofemployee" type="text">
+    </li>
+    <li>2.	Sex :
+        <input class=" input-border"  [value]="userdata.sex" type="text">
+    </li>
+    <li>3.	Religion :
+        <input class=" input-border"  [value]="userdata.religion" type="text">
+    </li>
+    <li>4.	Whether unmarried/married/widow/widower :
+        <input class=" input-border"  [value]="userdata.ismarried" type="text">
+    </li>
+    <li>5.	Department/Branch/Section/ where employed :
+        <input class=" input-border"  [value]="userdata.department" type="text">
+    </li>
+    <li>6.	Post held with ticket or Serial No., if any :
+        <input class=" input-border"  [value]="userdata.ticket" type="text">
+    </li>
+    <li>7.	Date of appointment :
+        <input class=" input-border"   [value]="userdata.date | date: 'dd/MM/yyyy'" type="text">
+    </li>
+    <li>8.	Permanent address : <br>
+        &nbsp;&nbsp;&nbsp;
+        <span>Village</span>
+        <input class=" input-border"  [value]="userdata.village" type="text">
+        <span> Thana </span>&nbsp;
+        <input class=" input-border"  [value]="userdata.thana" type="text">
+        <span>Sub-division</span>
+        <input class=" input-border"   [value]="userdata.subdivision"type="text">
+        <span>Post Office</span>
+        <input class=" input-border"   [value]="userdata.postoffice"type="text">
+        <span>District</span>
+        <input class=" input-border"  [value]="userdata.district" type="text">
+        <span>State</span>
+        <input class=" input-border"  [value]="userdata.state" type="text">
+    </li>
+   
+  <div class="row">
+    <div class="col-6">
+        <li>Date : <input type="text" class="input-border" [value]="userdata.date1 | date: 'dd/MM/yyyy'"></li>
+        <li>Place : <input type="text" class="input-border" [value]="userdata.place1"></li>
+    </div>
+    <div class="col-6">
+        <li><img [src]="url" width="120" height="100" alt="img"></li>
+        <li>Signature/thumb impression of the employee</li>
+    </div>
+  </div>
+
+  
+</ul>
+
+<div class="text-center">
+    <p><b><u>Declaration by witnesses</u></b></p>
+</div>
+
+<div>
+    <ul>
+        <li>Nomination signed/thumb impression before me.</li>
+    </ul>
+    <div class="row">
+        <div class="col-8">
+           <ul>
+            <li>Name in full and full address of witness</li>
+           </ul>
+        </div>
+        <div class="col-4" >
+            <p>Signature of witness</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <ul>
+            <li>1. <input type="text" class="input-border" [value]="userdata.witness1"></li>
+            <li>2. <input type="text" class="input-border" [value]="userdata.witness2"></li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <ul>
+            <li>1.</li>
+            <li>2.</li>
+        </ul>
+    </div>
+</div>
+<ul>
+    <li>Date : <input type="text" class="input-border" [value]="userdata.date2 | date: 'dd/MM/yyyy'"></li>
+    <li>Place : <input type="text" class="input-border" [value]="userdata.place2"></li>
+</ul>
+
+<div class="text-center">
+    <p><b><u>Certificate by the employer</u></b></p>
+</div>
+<ul>
+    <li>Certified that the particulars of the above nomination have been verified and recorded in this establishment.</li>
+    <li>Employer’s reference number if any.</li>
+</ul>
+<div class="row">
+    <div class="col-6">
+       <ul>
+        <br><br>
+        <li>Date: <input type="text" class="input-border" [value]="userdata.date3 | date: 'dd/MM/yyyy'"></li>
+       </ul>
+    </div>
+    <div class="col-6">
+        <ul>
+            <li>Signature of the employer/Officer authorized</li>
+            <li>Designation</li>
+            <li>Name and address of the establishment or rubber stamp thereof.</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<div class="text-center">
+    <p><b><u>Acknowledgement by the employee</u></b></p>
+</div>
+<ul>
+    <li>Received the duplicate copy of nomination in Form ’F’ filed by me and duly certified by the employer.</li>
+</ul>
+<div class="row">
+    <div class="col-8">
+       <ul>
+        <li>Date: <input type="text" class="input-border" [value]="userdata.date4 | date: 'dd/MM/yyyy'"></li>
+       </ul>
+    </div>
+    <div class="col-4">
+        <ul>
+            <li><img [src]="url" width="120" height="100" alt="img"></li>
+            <li>Signature of the employee</li>
+
+        </ul>
+    </div>
+</div>
+
+</div>
+
+<div class=" text-center">
+    <button type="button"  printSectionId= "print" [useExistingCss]="true" ngxPrint>print</button> 
+ </div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,67 @@
+<!-- <pdf-viewer [src]="pdfSrc"
+[rotation]="0"
+[original-size]="false"
+[show-all]="true"
+[fit-to-page]="false"
+[zoom]="1"
+[zoom-scale]="'page-width'"
+[stick-to-page]="false"
+[render-text]="true"
+[external-link-target]="'blank'"
+[autoresize]="true"
+[show-borders]="false"
+style="width: 100%; height: 600px;"
+class="pdf-viewer"
+></pdf-viewer> -->
+
+<!-- <ngx-extended-pdf-viewer
+[src]="pdfSrc"
+[useBrowserLocale]="true"
+[textLayer]="true"
+[(page)]="page"
+[(pageLabel)]="pageLabel"
+[enableDragAndDrop]="true"
+[showDownloadButton]="true"
+></ngx-extended-pdf-viewer> -->
+<!-- <ngx-image-viewer  [src]="image"></ngx-image-viewer> -->
+
+<div  class="row">
+    <div  class="col-11">
+        <mat-slide-toggle color="primary" [(ngModel)]="checkbox" [disabled]="disable"><h2>{{data.title+" Code Of Conduct Details"}}</h2></mat-slide-toggle>
+
+    </div>
+    <div class="col-1"><button class="btn"  type="button" mat-dialog-close>&times;</button>
+</div>
+
+
+<div class="container-fluid">
+    <mat-dialog-content class="mat-typography">
+        <pdf-viewer [src]="pdfSrc"
+        [rotation]="0"
+        [original-size]="true"
+        [show-all]="true"
+        [fit-to-page]="false"
+        [zoom]="1"
+        [zoom-scale]="'page-width'"
+        [stick-to-page]="false"
+        [render-text]="true"
+        [external-link-target]="'blank'"
+        [autoresize]="true"
+        [show-borders]="false"
+        style="width: 100%; height: 600px;"
+        class="pdf-viewer"
+        ></pdf-viewer>
+        <div>
+            <p align="center">
+                <mat-checkbox color="primary" [checked]="userdata.checkbox" disabled="true">I've read and accept the terms and conditions</mat-checkbox>
+              
+              </p>
+        </div>
+    </mat-dialog-content>
+  
+</div>
+
+
+<mat-dialog-actions align="end">
+    <button type="submit" mat-button [mat-dialog-close]="'success'"  (click)="updateformstatus()" mat-raised-button color="primary">Submit</button> 
+  </mat-dialog-actions>

@@ -1,0 +1,50 @@
+.input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+
+.field{
+    width: 28%;
+}
+
+ul ,ol{
+    list-style-type: none;
+   }
+   li{
+    margin-bottom: 10px;
+}
+input.ng-touched.ng-invalid{
+    border-bottom: 2px solid red !important;
+}
+
+
+.table{
+    width: 98%;
+    border-collapse: collapse;
+}
+.table tr td{
+    /* padding: 12px; */
+    border: .5px solid black;
+}
+
+  .input-border{
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+.no-border{
+    border: none !important;
+}
+
+.field1{
+    width: 99%;
+}
+th {
+    background-color: #2196F3 !important;
+    /* color: white !important; */
+    text-align: center !important;
+    padding: 12px;
+    border: .5px solid black;
+  }
+

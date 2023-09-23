@@ -1,0 +1,368 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 " style="padding: 0px;">
+    <mat-card>
+            <div class="text-center">
+                <h1><b>FORM ‘F’</b></h1>
+               <p>(See sub-rule (1) of Rule 6)</p>
+               <h3><b><u>NOMINATION</u></b></h3>
+            </div>
+
+            <!-- <p>{{pf.value | json}}</p> -->
+
+<form [formGroup]="gratuity" (ngSubmit)="Submit()">
+ 
+         <div style="margin-left: 35px;"> To &nbsp;&nbsp;<input class="field2 input-border" formControlName="name3" type="text"></div>
+          
+            <div class="text-center">(Give here name or description of the establishment with full address)</div>
+ 
+
+<ol type="1">
+    <li>1. &nbsp; I, Shri / Shrimati / Kumari 
+    <input class="field3 input-border" formControlName="name" type="text">
+    <div class="text-center">(Name in full here)</div>
+    <p>  whose particulars are given in the statement below, hereby nominate the person(s) mentioned below receive the gratuity payable after my death as also the gratuity standing to my credit in the event of death before that amount has become payable, or having become payable has not been paid and direct that the said amount of gratuity shall be paid in proportion indicated against the name(s) of the nominee(s).</p>
+    </li>
+
+    <li>2. &nbsp;I hereby certify that the person(s) mentioned is a/are member/s of my family within the meaning clause (h) of section (2) of the payment of Gratuity Act, 1972.</li>
+
+    <li>3. &nbsp;I hereby declare that I have no family within the meaning of clause (h) of section (2) of the said Act.</li>
+    <li>4. &nbsp;(a) My father/mother/parents is/are not dependant on me. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b) My husband’s father/mother/parents is/are not dependant on my husband.
+    </li>
+    <li>5. &nbsp;I have excluded my husband from my family by a notice dated &nbsp;
+        <!-- <input class="input-border" formControlName="name1" type="text"> -->
+        <input  class=" input-border" formControlName="name1" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+         to the controlling authority in terms of the provision to clause (h) of section (2) of the said Act.</li>
+    <li>6.&nbsp;Nomination made herein validates my previous nomination.</li>
+</ol>
+
+<div class="text-center">
+    <p><b>Nominee(s)</b></p>
+</div>
+
+<div style="margin-left:32px ;" class="table-responsive">
+<table  class="table text-center">
+   <tr>
+    <th>Name in full with full address of nominee(s)</th>
+    <th>Relationship with the employee</th>
+    <th>Age of nominee</th>
+    <th>Proportion by which the gratuity will be shared</th>
+   </tr>
+
+<tr>
+    <td>
+        <!-- <input class="no-border field" formControlName="r1c1" type="text"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r1c1"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r1c2" type="text"> -->
+        <!-- <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r1c2"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field> -->
+          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field">
+            <mat-select  name="relation" formControlName="r1c2">
+                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r1c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r1c3"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r1c4" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r1c4"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+</tr>
+<tr>
+    <td>
+        <!-- <input class="no-border field" formControlName="r2c1" type="text"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput  formControlName="r2c1"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r2c2" type="text"> -->
+        <!-- <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r2c2"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field> -->
+          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field">
+            <mat-select  name="relation" formControlName="r2c2">
+                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r2c3"  type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r2c3"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r2c4" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r2c4"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+</tr>
+<tr>
+    <td>
+        <!-- <input class="no-border field" formControlName="r3c1" type="text"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r3c1"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r3c2" type="text"> -->
+        <!-- <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r3c2"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field> -->
+          <mat-form-field floatLabel="never" appearance="outline"  class="no-border field">
+            <mat-select  name="relation" formControlName="r3c2">
+                <mat-option *ngFor="let r of relations" [value]="r">{{r}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r3c3" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r3c3"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+    <td>
+        <!-- <input class="no-border field" formControlName="r3c4" type="text" (keypress)="_keyPress($event)" maxlength="3"> -->
+        <mat-form-field appearance="outline"  class="no-border field">
+            <textarea matInput formControlName="r3c4"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      (keypress)="_keyPress($event)" maxlength="3"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+    </td>
+</tr>
+ </table>
+</div>
+
+<div class="text-center">
+    <p><b><u>Statement</u></b></p>
+</div>
+
+<ul>
+    <li>1.	Name of employee in full :
+        <input class=" input-border"   formControlName="nameofemployee" type="text">
+    </li>
+    <li>2.	Sex :
+        <input class=" input-border"  formControlName="sex" type="text">
+    </li>
+    <li>3.	Religion :
+        <input class=" input-border"  formControlName="religion" type="text">
+    </li>
+    <li>4.	Whether unmarried/married/widow/widower :
+        <input class=" input-border"  formControlName="ismarried" type="text">
+    </li>
+    <li>5.	Department/Branch/Section/ where employed :
+        <input class=" input-border"  formControlName="department" type="text">
+    </li>
+    <li>6.	Post held with ticket or Serial No., if any :
+        <input class=" input-border"  formControlName="ticket" type="text">
+    </li>
+    <li>7.	Date of appointment :
+        <!-- <input class=" input-border"   formControlName="date" type="text"> -->
+        <input  class=" input-border" formControlName="date" [matDatepicker]="picker1">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+    </li>
+    <li>8.	Permanent address : <br>
+        &nbsp;&nbsp;&nbsp;
+        <span>Village</span>&nbsp;
+        <input class=" input-border"  formControlName="village" type="text">
+        <span> Thana </span>&nbsp;
+        <input class=" input-border"  formControlName="thana" type="text">
+        <span>Sub-division</span>&nbsp;
+        <input class=" input-border"   formControlName="subdivision"type="text">
+        <span>Post Office</span>&nbsp;
+        <input class=" input-border"   formControlName="postoffice"type="text">
+        <span>District</span>&nbsp;
+        <input class=" input-border"  formControlName="district" type="text">
+        <span>State</span>&nbsp;
+        <input class=" input-border"  formControlName="state" type="text">
+    </li>
+    <li>Date : 
+        <!-- <input type="text" class="input-border" formControlName="date1"> -->
+        <input  class=" input-border" formControlName="date1" [matDatepicker]="picker2">
+            <mat-datepicker #picker2></mat-datepicker>
+    </li>
+    <li>Place : <input type="text" class="input-border" formControlName="place1"></li>
+    <li align="end" style="margin-right:15px ;"><img [src]="url" width="120" height="100" alt="img"></li>
+    <li align="end" style="margin-right:15px ;">Signature/thumb impression of the employee</li>
+</ul>
+
+<div class="text-center">
+    <p><b><u>Declaration by witnesses</u></b></p>
+</div>
+<br>
+<div>
+    <ul>
+        <li>Nomination signed/thumb impression before me.</li>
+    </ul>
+    <div class="row">
+        <div class="col-10">
+           <ul>
+            <li>Name in full and full address of witness</li>
+           </ul>
+        </div>
+        <div class="col-2" >
+            <p>Signature of witness</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-9">
+        <ul>
+            <li>1. <input type="text" class="input-border" formControlName="witness1"></li>
+            <li>2. <input type="text" class="input-border" formControlName="witness2"></li>
+        </ul>
+    </div>
+    <div class="col-3">
+        <ul>
+            <li>1.</li>
+            <li>2.</li>
+        </ul>
+    </div>
+</div>
+<ul>
+    <li>Date : 
+        <!-- <input type="text" class="input-border" formControlName="date2"> -->
+        <input  class=" input-border" formControlName="date2" [matDatepicker]="picker3">
+        <mat-datepicker #picker3></mat-datepicker>
+    </li>
+    <li>Place : <input type="text" class="input-border" formControlName="place2"></li>
+</ul>
+
+<div class="text-center">
+    <p><b><u>Declaration by witnesses</u></b></p>
+</div>
+<ul>
+    <li>Certified that the particulars of the above nomination have been verified and recorded in this establishment.</li>
+    <li>Employer’s reference number if any.</li>
+</ul>
+<div class="row">
+    <div class="col-9">
+       <ul>
+        <br><br>
+        <li>Date: 
+            <!-- <input type="text" class="input-border" formControlName="date3"> -->
+            <input  class=" input-border" formControlName="date3" [matDatepicker]="picker4">
+            <mat-datepicker #picker4></mat-datepicker>
+        </li>
+       </ul>
+    </div>
+    <div class="col-3">
+        <ul>
+            <li>Signature of the employer/Officer authorized</li>
+            <li>Designation</li>
+            <li>Name and address of the establishment or rubber stamp thereof.</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<div class="text-center">
+    <p><b><u>Acknowledgement by the employee</u></b></p>
+</div>
+<ul>
+    <li>Received the duplicate copy of nomination in Form ’F’ filed by me and duly certified by the employer.</li>
+</ul>
+<div class="row">
+    <div class="col-9">
+       <ul>
+        <li>Date: 
+            <!-- <input type="text" class="input-border" formControlName="date4"> -->
+            <input  class=" input-border" formControlName="date4" [matDatepicker]="picker5">
+            <mat-datepicker #picker5></mat-datepicker>
+        </li>
+       </ul>
+    </div>
+    <div class="col-3">
+        <ul>
+            <li align="end" style="margin-right:15px ;"><img [src]="url" width="120" height="100" alt="img"></li>
+            <li align="end" style="margin-right:15px ;">Signature of the employee</li>
+
+        </ul>
+    </div>
+</div>
+
+ <div class=" text-center">
+   <button mat-fab color="primary" type="button" routerLink="/user-dashboard/pf" class="btn btn-primary"><mat-icon> navigate_before </mat-icon></button>&nbsp;&nbsp;
+   <button mat-fab color="primary" type="submit" class="btn btn-primary" [disabled]="!gratuity.valid"><mat-icon> navigate_next </mat-icon></button>
+</div>
+</form>
+
+</mat-card>
+
+
+</div>
+</div>
+</div>

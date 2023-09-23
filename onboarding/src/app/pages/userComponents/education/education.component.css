@@ -1,0 +1,154 @@
+.demo-table {
+    width: 100%;
+  }
+
+  
+.fullwidth{
+  width: 40%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+
+table {
+  width: 100%;
+}
+mat-header-row {
+  height: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: #5a5a5a;
+}
+
+.mat-row {
+  height: 48px;
+  left: 0px;
+  top: 50px;
+  border-radius: 0px;
+  border-left: solid 4px white;
+}
+
+mat-form-field {
+  width: 100% !important;
+  text-align: center !important;
+
+}
+.button-position {
+  margin-right: 30px;
+}
+.cdk-overlay-pane {
+  position: absolute;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  max-height: 38px;
+}
+.mat-column-course {
+  max-width: 15% !important;
+}
+.mat-column-branch {
+ max-width: 10% !important;
+}
+.mat-column-school_Institute{
+  max-width: 10% !important;
+}
+
+.mat-column-board_university{
+  max-width: 10% !important;
+}
+
+.mat-column-fromDate{
+  max-width: 10% !important;
+}
+
+.mat-column-toDate {
+  max-width: 20% !important;
+}
+.mat-column-cgpa{
+  max-width: 10% !important;
+}
+
+.mat-column-upload {
+  max-width: 5% !important;
+}
+.mat-column-delete {
+  max-width: 5% !important;
+}
+
+table td,
+table th {
+  vertical-align: middle;
+}
+mat-table {
+  /* overflow-y: auto; */
+  overflow-x: scroll;
+
+}
+.mb-3 {
+  font-size: 20px;
+  color: #5a5a5a;
+}
+a.mat-row-link {
+  cursor: pointer;
+  width: 100%;
+}
+
+a {
+  color: unset !important;
+  text-decoration: none !important;
+}
+mat-header-row{
+  min-height: 45px !important;
+  background-color: #2196F3;
+}
+
+.mat-cell,
+.mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 14px;
+    line-break: unset;
+    width: 100% !important;
+    white-space: nowrap;
+    /* overflow: hidden; */
+    vertical-align: middle;
+}
+.mat-row,
+.mat-header-row {
+    display: table-row;
+   
+    
+}
+.mat-cell ,.mat-header-cell{
+  font-size: 14px;
+  min-height: 48px;
+  text-align: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black !important;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 0.75em 0 0.75em;
+  margin-top: 0.75em !important;
+  position: relative;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
