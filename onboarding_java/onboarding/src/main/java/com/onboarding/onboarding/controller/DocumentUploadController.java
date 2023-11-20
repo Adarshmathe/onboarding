@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -24,6 +22,8 @@ import org.springframework.http.MediaType;
 import org.springframework.util.StreamUtils;
 
 import com.onboarding.onboarding.service.DocumentUploadService;
+
+import jakarta.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/image")
 @CrossOrigin("*")
